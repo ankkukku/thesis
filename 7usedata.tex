@@ -1,0 +1,433 @@
+% ===== KAIKILLE KUVAAJILLE YHTEISIÄ MÄÄRITTELYJÄ ===== %
+
+\definecolor{goodgreen}{HTML}{248C46}
+
+\pgfplotsset{
+	jitter/.style={
+		x filter/.code={\pgfmathparse{\pgfmathresult+rnd*#1}}
+	},
+	jitter/.default=0.1
+}
+% ====================================================== %
+
+
+\chapter{Usage Data Analysis}
+\label{chapter:usedata}
+
+
+\section{Data Processing}
+
+As a material for this section, Celery task log, the inspection of A+ submissions and grading information were used. The Celery log file, which contained over one hundred thousand rows of data related to submissions during the course, was first divided into four files that each included submissions to one assignment. The logs were stripped of unnecessary information leaving only lines with submission ids, compilation times and error information. The stripped data files contained only one row of data per submission and were further processed with Excel, which allowed the calculation of average compilation times.
+
+The log entries were matched with submissions from the A+ system, which added incomplete submissions that were not shown in server data as well as matched submissions to a specific person. All teaching assistants' and instructor's submissions could at this point be removed from the data to demonstrate only the students' use patterns. Additionally, matching submissions with the responsible students made it possible to analyse the number of students' submissions and the dates that students started working on the exercises. The students who did not have any submissions to the second and third assignments, which were a requisite to pass the course, were at this point removed from the data.
+
+The grading information, which logged pair submitters, was used to recognise the pairs and the points and grades were added to the data as well. When submissions to an individual assignment are considered, pair submitters are reduced to one entity with shared submission number, starting time and grade. If the points or grade between members of the pair differ, the average is used. Additionally, there were four pairs that completed all four assignments together, those pairs are treated as entities also when the combined data from all four assignments is handled.
+
+
+\section{Results}
+
+Submission statistics that are discussed in the following section show the submissions of altogether one hundred and sixty students. First, the compilation times and the number of submissions for each assignment are presented in Section~\ref{subsec:compilation}. Then we show the distribution of all submissions on a timeline and highlight students' first submission to each assignment in Sections~\ref{subsec:distribution} and~\ref{subsec:firsts} respectively. Finally, the number of submissions in relation to reached points are presented in Section~\ref{subsec:numperstudent} for each assignment round and the whole course.
+
+
+\subsection[Compilation Times and the Number of Submissions]{Compilation Times and \\ the Number of Submissions}
+\label{subsec:compilation}
+
+The number of submitters and submissions to each assignment round have been compiled to Table~\ref{table:numberOfSubs}. Submissions have been categorised into successful, failed or incomplete submissions. Successful submissions are those that were successfully compiled but could have functioned incorrectly and even produced a runtime exception. Failed submissions returned compilation error and incomplete submissions did not contain all necessary files for compilation.
+
+As the course progressed and the assignments grew more complex, the students used more trial submissions. It is possible that also the increasing options for bonus features and growing programming experience affected the number of submissions. For example the assignments in the first round did not differ that much in difficulty, but the assignment 1.2 had much more complex and indefinite bonus exercise of implementing an elementary artificial intelligence for the automated opponent. It is also notable that more students chose to complete the latter assignments with a partner. The ratio of successful to failed submissions, on the other hand, does not reveal any clear trend.
+
+The analysis of compilation times for each assignment is presented in Table~\ref{table:compilationTimes}. Again, the successful and failed submissions have been treated separately. The incomplete submissions do not of course have a compilation time, as they did not reach the server and resulted in an error message shown right away to the student. In addition to the average compilation time, the minimum and maximum successful and failed compilation times have been found.
+
+\newcolumntype{L}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{table}[t!]
+\small
+	\begin{center}
+		\begin{tabular}{| p{2.5cm} | p{2cm} || L{1.5cm} | L{1.5cm} | L{1.5cm} | L{1.5cm}|}
+			\hline
+			\multicolumn{2}{|c||}{ }										& A 1.1		& A 1.2		& A 2			& A 3			\\ \hline
+			\multirow{4}{*}{\parbox{2.5cm}{
+				Number of\\submissions}}	& Successful		& 445			& 920			& 2566		& 2767		\\
+																	& Failed				& 71			& 56			& 130			& 73(6)		\\
+																	& Incomplete		& 9				& 10			& 14			& 12			\\
+																	& All						& 525			& 986			& 2710		& 2858		\\ \hline
+			\multicolumn{2}{|c||}{Number of submitters}	& 151(4)	& 150(5)	& 147(13)	& 137(13) \\ \hline
+		\end{tabular}
+		\captionsetup{singlelinecheck=off}
+		\caption[asdf]{\small{The number of successful, failed and incomplete submissions to each assignment. The 
+													number inside parenthesis for the third assignment's failed submissions is the amount 
+													of timed out submissions. The number of submitters is shown for each assignment, the 
+													number of pair submitters is shown inside parenthesis.}}
+		\label{table:numberOfSubs}
+
+\vspace*{0.5 cm}
+
+		\begin{tabular}{| p{2.5cm} | p{2cm} || L{1.5cm} | L{1.5cm} | L{1.5cm} | L{1.5cm}|}
+			\hline
+			\multicolumn{2}{|c||}{Compilation times (s)}	& A 1.1	& A 1.2	& A 2		& A 3			\\ \hline
+			\multirow{3}{*}{Successful}	& average					& 60,55	& 57,57	& 32,90	& 54,01		\\
+																	& minimum					& 26,95	& 28,42	& 26,86	& 44,28		\\
+																	& maximum					& 96,55	& 97,18	& 88,15	& 277,15	\\ \hline
+			\multirow{3}{*}{Failed}			& average					& 26,51	& 34,31	& 17,96	& 11,01		\\
+																	& minimum					& 19,13	& 18,31	& 14,20	& 2,22		\\
+																	& maximum					& 30,84	& 46,49	& 27,53	& 114,80	\\ \hline
+	  	All													& average					& 55,87	& 56,23	& 32,18	& 52,90		\\ \hline
+		\end{tabular}
+		\captionsetup{singlelinecheck=off}
+		\caption[asdf]{\small{The average, minimum and maximum compilation times divided for successful and failed
+													submissions to each assignment.}}
+		\label{table:compilationTimes}
+	\end{center}
+\end{table}
+
+The compilation times in the first assignment round were far from optimal considering the relative simplicity of the resulting code. However, as there were not that many submissions and long queues did not form, the overall waiting time was reasonable for an average student. The compilation script was tweaked for the second assignment round and most of the background code was compiled to a jar-package to shorten the compilation time further. This had a clear positive effect on the compilation times, but the failed compilation still took too much time.
+
+For the third assignment round another script was added that attempted to compile the submitted files with \emph{fsc} before they would be compiled to JavaScript, which brought the compilation time for failing submissions to a desired level. However, the attempts to shorten the compilation time for successful submissions failed. Nearly all of the compiled code was produced by students and packaging the background code did not provide any help like in the second assignment round. This caused major problems towards the end of the assignment round as there were many submissions and the queue grew as many as to 37 submissions resulting in over than half an hour waiting times at the worst.
+
+
+\subsection{Number of Submissions per Student}
+\label{subsec:numperstudent}
+
+The number of submissions were compared with the points received from the assignment round. The results are pictured in Figure~\ref{figure:submissions-vs-points}. For the assignment 1.1 most students used four or less trial submissions with good results. But as already shown in Table~\ref{table:numberOfSubs} there were more than twice the amount of submissions to the assignment 1.2 and most students managed with small number of submissions of eight or less. However, there were clearly more students who iterated their solution most likely working on the bonus exercise.
+
+\begin{figure}[hb!]
+  \begin{tikzpicture}
+  	\begin{groupplot}[group style={group size= 2 by 2, vertical sep=1.5cm},
+  										width=0.5*\textwidth, every axis title/.append style={font=\footnotesize,},
+  										grid=both, tick label style={font=\footnotesize},
+											extra tick style={major grid style=red,
+																				tick style=red,
+																				xtick align=outside,
+																				xticklabel={}},
+  										x label style={at={(axis description cs:0.5,0)},anchor=north,font=\footnotesize}]
+  		\nextgroupplot[	title=(a) Assignment 1.1,
+  										extra y ticks={5,10}, ytick={0,2,4,6,8,12},
+  										xtick={0,2,4,6,8,10,12,14}]
+  	  \addplot+[jitter=0.2, only marks, mark=o, scatter src=explicit symbolic]
+  	  	table [meta=points, col sep=comma] {data/submissions-vs-points-1-1.csv};
+  		
+  		\nextgroupplot[	title=(b) Assignment 1.2,
+  										extra y ticks={5,10}, ytick={0,2,4,6,8,12},
+  										xtick={0,5,10,15,20,25,30,35}]
+  	  \addplot+[jitter=0.1, only marks, mark=o, scatter src=explicit symbolic]
+  			table [meta=points, col sep=comma] {data/submissions-vs-points-1-2.csv};
+  			
+  		\nextgroupplot[	title=(c) Assignment 2,
+  										ylabel=Points for the Assignment Round,
+  										every axis y label/.append style={font=\footnotesize, at={(0.0,1.3)}},
+  										xlabel=Number of Submissions,
+  										every axis x label/.append style={font=\footnotesize, at={(1.1,0.0)}},
+  										extra y ticks={10,20}, ytick={0,5,15,25},
+  										xtick={0,10,20,30,40,50,60,70,80,90}]
+  		\addplot+[jitter=0.1, only marks, mark=o, scatter src=explicit symbolic]
+  			table [meta=points, col sep=comma] {data/submissions-vs-points-2.csv};
+  			
+  		\nextgroupplot[	title= (d) Assignment 3,
+  										extra y ticks={10,20}, ytick={0,5,15,25},
+  										xtick={0,10,20,30,40,50,60,70,80}]
+  	  \addplot+[jitter=0.1, only marks, mark=o, scatter src=explicit symbolic]
+  			table [meta=points, col sep=comma] {data/submissions-vs-points-3.csv};
+  			
+  	\end{groupplot}
+  \end{tikzpicture}
+	\captionsetup{singlelinecheck=off}
+  \caption[asdf]{\small{The number of individual students' or student pairs' submissions compared with the
+  											points reached during the assignment round. Some jitter has been added to improve
+												readability of the figures. The two horizontal lines indicate the minimum points to pass
+												the assignment and the maximum points awarded without bonus functionality.}}
+  \label{figure:submissions-vs-points}
+\end{figure}
+
+There were more submissions per student for the second and third assignments than in the first assignment round, but still most students managed with ten or less submissions. Figure~\ref{figure:submissions-vs-points} reveals some students who had a significant number of submissions. Probably some of them had difficulties while others worked on the bonus filters. Additionally, there is somewhat more dispersion between submission numbers and more students received slightly lower points for the third than for the second assignment round.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[grid=both, width=0.7*\textwidth, at={(-65.0,1.0)},
+								 tick label style={font=\footnotesize},
+								 every axis y label/.append style={font=\footnotesize},
+  							 every axis x label/.append style={font=\footnotesize},
+								 ylabel=Points reached during the course,
+								 xlabel=Number of submissions during the course]
+			\addplot+[scatter, only marks, scatter src=explicit symbolic,
+							  scatter/classes={0={mark=o,red}, 1={mark=*,orange}, 2={mark=triangle,darkgray}, 
+																 3={mark=diamond,blue}, 4={mark=square,cyan}, 5={mark=pentagon,violet}}]
+				table [meta=grade, col sep=comma] {data/submissions-vs-points.csv};
+			
+		\end{axis}
+		\begin{customlegend}[
+			legend entries={grade 0, grade 1, grade 2, grade 3, grade 4, grade 5},
+			legend style={anchor=north, font=\footnotesize, at={(1.0,-1.5)}},
+			legend columns=6,
+			/tikz/every even column/.append style={column sep=0.5cm}]
+			\addlegendimage{only marks, mark=o,red}
+			\addlegendimage{only marks, mark=*,orange}
+			\addlegendimage{only marks, mark=triangle,darkgray}
+			\addlegendimage{only marks, mark=diamond,blue}
+			\addlegendimage{only marks, mark=square,cyan}
+			\addlegendimage{only marks, mark=pentagon,violet}
+		\end{customlegend}
+	\end{tikzpicture}
+	\captionsetup{singlelinecheck=off}
+	\caption[asdf]{\small{The number of individual students' or student pairs' submissions to the whole course 
+												compared with the points reached during the course.}}
+	\label{figure:submissions-vs-points-all}
+\end{figure}
+
+The comparison between the number of overall submissions and the final grade shows that students who reached low passing grades had on average less submissions than those who reached higher grades. Students with grades one and two used on average around thirty submissions while students reaching higher grades of three and four used on average around fifty submissions. For the highest grade of five students used on average as many as sixty submissions. Additionally, there were some outliers who had significantly more submissions than other students who reached the same grade.
+
+
+\subsection{Distribution of Submissions}
+\label{subsec:distribution}
+
+\begin{figure}[ht!p]
+  \centering
+  \begin{tikzpicture}
+		\begin{groupplot}[group style = {group size = 1 by 2, vertical sep=2cm}, width=0.7*\textwidth,
+											date coordinates in=x, date coordinates in=y, xminorgrids=true,
+											xticklabel={\day.\month.}, xticklabel style= {rotate=45,anchor=north east},
+											xtick={2015-09-25 16:00:00, 2015-10-02 16:00:00, 2015-10-09 16:00:00, 2015-10-16 16:00:00},
+											minor xtick ={2015-09-19 16:00:00, 2015-09-20 16:00:00, 2015-09-21 16:00:00,
+																		2015-09-22 16:00:00, 2015-09-23 16:00:00, 2015-09-24 16:00:00,
+																		2015-09-25 16:00:00, 2015-09-26 16:00:00, 2015-09-27 16:00:00,
+																		2015-09-28 16:00:00, 2015-09-29 16:00:00, 2015-09-30 16:00:00,
+																		2015-10-01 16:00:00, 2015-10-02 16:00:00, 2015-10-03 16:00:00,
+																		2015-10-04 16:00:00, 2015-10-05 16:00:00, 2015-10-06 16:00:00,
+																		2015-10-07 16:00:00, 2015-10-08 16:00:00, 2015-10-09 16:00:00,
+																		2015-10-10 16:00:00, 2015-10-11 16:00:00, 2015-10-12 16:00:00,
+																		2015-10-13 16:00:00, 2015-10-14 16:00:00, 2015-10-15 16:00:00,
+																		2015-10-16 16:00:00},
+											yticklabel={\hour:\minute},
+											ytick={	2015-09-20 00:00:00, 2015-09-20 03:00:00, 2015-09-20 06:00:00, 2015-09-20 09:00:00,
+															2015-09-20 12:00:00, 2015-09-20 15:00:00, 2015-09-20 18:00:00, 2015-09-20 21:00:00,
+															2015-09-20 24:00:00},
+											date ZERO=2015-09-19,
+											every axis title/.append style={font=\footnotesize,},
+											tick label style={font=\footnotesize}]
+			\nextgroupplot[	title=(a) Assignment 1.1]
+				\addplot+[scatter, only marks, scatter src=explicit symbolic,
+									scatter/classes={1={mark=o,goodgreen,mark size=1.5}, -1={mark=none}}]
+					table [meta=status, col sep=comma] {data/kierros1_1-submissions-no_assistants.csv};
+				\addplot+[scatter, only marks, scatter src=explicit symbolic,
+									scatter/classes={1={mark=none}, -1={mark=otimes,red, mark size=2}}]
+					table [meta=status, col sep=comma] {data/kierros1_1-submissions-no_assistants.csv};
+				\addplot[mark=star,mark size=5] coordinates {(2015-10-02 16:00,2015-09-20 16:00)};
+				\addplot[mark=asterisk,mark size=5] coordinates {(2015-10-07 16:00,2015-09-20 16:00)};
+
+			\nextgroupplot[	title=(a) Assignment 1.2]
+				\addplot+[scatter, only marks, scatter src=explicit symbolic,
+	  							scatter/classes={ 1={mark=o,goodgreen, mark size=1.5}, -1={mark=none}}]
+					table [meta=status, col sep=comma] {data/kierros1_2-submissions-no_assistants.csv};
+				\addplot+[scatter, only marks, scatter src=explicit symbolic,
+									scatter/classes={ 1={mark=none}, -1={mark=otimes,red, mark size=2}}]
+					table [meta=status, col sep=comma] {data/kierros1_2-submissions-no_assistants.csv};
+				\addplot[mark=star,mark size=5] coordinates {(2015-10-02 16:00,2015-09-20 16:00)};
+				\addplot[mark=asterisk,mark size=5] coordinates {(2015-10-07 16:00,2015-09-20 16:00)};
+
+		\end{groupplot}
+		\begin{customlegend}[	legend entries={successful submission, failed submission},
+													legend style={at={(4.0,-10.0)}, anchor=north, font=\footnotesize},
+													legend columns=2,
+													/tikz/every even column/.append style={column sep=1.0cm}]
+			\addlegendimage{only marks, mark=o,goodgreen,mark size=1.5}
+			\addlegendimage{only marks, mark=otimes,red,mark size=2}
+		\end{customlegend} 
+	\end{tikzpicture}
+	\captionsetup{singlelinecheck=off}
+	\caption[asdf]{\small{All students' submissions to the assignments 1.1 and 1.2. The star marks the deadline, 
+												which was on the 2nd of October at 4 p.m. and the asterisk marks the late submission 
+												deadline, which was on the 7th of October at 4 p.m. The submissions after the hard
+												deadline came from students who did not reach the minimum points to pass the exercise and 
+												were obliged to work further on their assignment. There were 516 submissions to the 
+												assignment 1.1. and 976 submissions to the assignment 1.2.}}
+	\label{figure:submissions1}
+\end{figure}
+
+\begin{figure}[ht!p]
+	\centering
+	\begin{tikzpicture}
+		\begin{groupplot}[group style = {group size = 1 by 2, vertical sep=2cm}, width=0.7*\textwidth,
+											date coordinates in=x, date coordinates in=y, xminorgrids=true,
+											xticklabel={\day.\month.}, xticklabel style= {rotate=45,anchor=north east},
+											yticklabel={\hour:\minute}, every axis title/.append style={font=\footnotesize,},
+											tick label style={font=\footnotesize}]
+			\nextgroupplot[	title=(a) Assignment 2,
+											xtick={2015-10-09 16:00:00, 2015-10-16 16:00:00, 2015-10-23 16:00:00, 2015-10-30 16:00:00},
+											minor xtick ={2015-10-03 16:00:00, 2015-10-04 16:00:00, 2015-10-05 16:00:00,
+																		2015-10-06 16:00:00, 2015-10-07 16:00:00, 2015-10-08 16:00:00,
+																		2015-10-09 16:00:00, 2015-10-10 16:00:00, 2015-10-11 16:00:00,
+																		2015-10-12 16:00:00, 2015-10-13 16:00:00, 2015-10-14 16:00:00,
+																		2015-10-15 16:00:00, 2015-10-16 16:00:00, 2015-10-17 16:00:00,
+																		2015-10-18 16:00:00, 2015-10-19 16:00:00, 2015-10-20 16:00:00,
+																		2015-10-21 16:00:00, 2015-10-22 16:00:00, 2015-10-23 16:00:00,
+																		2015-10-24 16:00:00, 2015-10-25 16:00:00, 2015-10-26 16:00:00,
+																		2015-10-27 16:00:00, 2015-10-28 16:00:00, 2015-10-29 16:00:00,
+																		2015-10-30 16:00:00},
+											ytick={	2015-10-04 00:00:00, 2015-10-04 03:00:00, 2015-10-04 06:00:00, 2015-10-04 09:00:00,
+															2015-10-04 12:00:00, 2015-10-04 15:00:00, 2015-10-04 18:00:00, 2015-10-04 21:00:00,
+															2015-10-04 24:00:00},
+											date ZERO=2015-10-03]
+				\addplot+[scatter, only marks, scatter src=explicit symbolic,
+									scatter/classes={1={mark=o,goodgreen, mark size=1.5}, -1={mark=none}}]
+					table [meta=status, col sep=comma] {data/kierros2-submissions-no_assistants.csv};
+				\addplot+[scatter, only marks, scatter src=explicit symbolic,
+									scatter/classes={1={mark=none}, -1={mark=otimes,red, mark size=2}}]
+					table [meta=status, col sep=comma] {data/kierros2-submissions-no_assistants.csv};
+				\addplot[mark=star,mark size=5] coordinates {(2015-10-16 16:00,2015-10-04 16:00)};
+				\addplot[mark=asterisk,mark size=5] coordinates {(2015-10-21 16:00,2015-10-04 16:00)};
+			 
+			\nextgroupplot[	title=(b) Assignment 3,
+											xtick={	2015-10-23 16:00:00, 2015-10-30 16:00:00, 2015-11-06 16:00:00, 2015-11-13 16:00:00, 
+															2015-11-20 16:00:00},
+											minor xtick ={2015-10-18 16:00:00, 2015-10-19 16:00:00, 2015-10-20 16:00:00,
+																		2015-10-21 16:00:00, 2015-10-22 16:00:00, 2015-10-23 16:00:00,
+																		2015-10-24 16:00:00, 2015-10-25 16:00:00, 2015-10-26 16:00:00,
+																		2015-10-27 16:00:00, 2015-10-28 16:00:00, 2015-10-29 16:00:00,
+																		2015-10-30 16:00:00, 2015-10-31 16:00:00, 2015-11-01 16:00:00,
+																		2015-11-02 16:00:00, 2015-11-03 16:00:00, 2015-11-04 16:00:00,
+																		2015-11-05 16:00:00, 2015-11-06 16:00:00, 2015-11-07 16:00:00,
+																		2015-11-08 16:00:00, 2015-11-09 16:00:00, 2015-11-10 16:00:00,
+																		2015-11-11 16:00:00, 2015-11-12 16:00:00, 2015-11-13 16:00:00,
+																		2015-11-14 16:00:00, 2015-11-15 16:00:00, 2015-11-16 16:00:00,
+																		2015-11-17 16:00:00, 2015-11-18 16:00:00, 2015-11-19 16:00:00,
+																		2015-11-20 16:00:00},
+											ytick={	2015-10-19 00:00:00, 2015-10-19 03:00:00, 2015-10-19 06:00:00, 2015-10-19 09:00:00,
+															2015-10-19 12:00:00, 2015-10-19 15:00:00, 2015-10-19 18:00:00, 2015-10-19 21:00:00,
+															2015-10-19 24:00:00},
+											date ZERO=2015-10-18]
+				\addplot+[scatter, only marks, scatter src=explicit symbolic,
+									scatter/classes={1={mark=o,goodgreen, mark size=1.5}, -1={mark=none}, 3={mark=none}}]
+						table [meta=status, col sep=comma] {data/kierros3-submissions-no_assistants.csv};
+				\addplot+[scatter, only marks, scatter src=explicit symbolic,
+									scatter/classes={1={mark=none}, -1={mark=otimes,red, mark size=2}, 3={mark=none}}]
+					table [meta=status, col sep=comma] {data/kierros3-submissions-no_assistants.csv};
+				\addplot+[scatter, only marks, scatter src=explicit symbolic,
+									scatter/classes={1={mark=none}, -1={mark=none}, 3={mark=triangle,blue, mark size=3.5}}]
+					table [meta=status, col sep=comma] {data/kierros3-submissions-no_assistants.csv};
+				\addplot[mark=star,mark size=5] coordinates {(2015-11-06 16:00,2015-10-19 16:00)};
+				\addplot[mark=asterisk,mark size=5] coordinates {(2015-11-11 16:00,2015-10-19 16:00)};
+
+		\end{groupplot}
+		\begin{customlegend}[
+		legend entries={successful submission, failed submission, timed out submissions},
+		legend style={at={(4.0,-10.0)}, anchor=north, font=\footnotesize},
+		legend columns=3,
+		/tikz/every even column/.append style={column sep=0.7cm}]
+			\addlegendimage{only marks, mark=o,goodgreen,mark size=1.5}
+			\addlegendimage{only marks, mark=otimes,red,mark size=2}
+			\addlegendimage{only marks, mark=triangle,blue,mark size=3.5}
+		\end{customlegend}
+	\end{tikzpicture}
+	\captionsetup{singlelinecheck=off}
+	\caption[asdf]{\small{All students' submission for the second and third assignment rounds. The star marks the deadline, which was on the 16th of October at 4 p.m. for the second and on the 6th of November at 4 p.m. for the third assignment. The asterisk marks the late submission deadline, which was on the 21st of October at 4 p.m. for the second and on the 11th of November at 4 p.m. for the third assignment. The submissions after the hard deadline came from students who did not reach the minimum points to pass the exercise and were obliged to work further on their assignment. There were 2696 submissions to the second and 2846 submissions to the third assignment round.}}
+	\label{figure:submissions2}
+\end{figure}
+
+The analysis of the submissions, which are pictured in Figures~\ref{figure:submissions1} and~\ref{figure:submissions2}, unsurprisingly revealed that students tended to work on the assignments during the daytime and near the deadline. There is a clear increase in submission frequency for assignments 1.1 and 1.2 after Wednesday 12 p.m before the submission deadline on Friday, which is most likely explained by the fact that the course \emph{Programming 1} had its deadlines on Wednesdays at noon. However, for the second and third assignment rounds the distinction is not apparent. Possibly the increasing difficulty of the assignments encouraged some students to try and start earlier, like the course staff suggested throughout the course, and overall increased the number of submissions, so students stayed working on the assignment longer also well before the deadline.
+
+Interestingly, the distribution of failed submissions to assignment 1.2 is also centred around last three days before the deadline whereas for assignment 1.1 the failed submissions were distributed quite evenly. A quick analysis of the failed submissions to assignment 1.2 revealed that twenty-seven students had failed submissions; most of them had one or two and at most four failed submissions while one student was responsible for twenty-three failed submissions, which is just a bit over a third of all failed submissions. A quick look through some of that student's submissions revealed that the student had on more than one occasion submitted the failing file multiple times in a row without any alterations.
+
+The analysis of submissions to the second assignment round in Figure~\ref{figure:submissions2} (a) shows that most of the failed submissions occurred during the last three days prior to the deadline. This time analysis of failed submissions did not reveal any clear culprit behind failed submissions, although there were two students who were responsible for roughly eight and seventeen percent of failed submissions each. However, as there were a hundred and thirty failed submissions to the second assignment round from fifty-nine students in all, failed submissions were quite evenly distributed among the students.
+
+There were significantly less failed submissions to the third assignment than to the second assignment. The failed submissions are quite evenly distributed through out the time that the assignment was open and between students who had failed submissions. Naturally, most of the failed submissions are near the submission deadline. Additionally, the third assignment round had six submissions that eventually timed out due to long compilation times and a long submission queue. 
+
+
+\subsection{First Submission}
+\label{subsec:firsts}
+
+\begin{figure}[ht!]
+  \begin{tikzpicture}
+  	\begin{groupplot}[group style = {group size = 2 by 2, vertical sep=2.3cm}, grid=both,
+  										width=0.5*\textwidth, every axis title/.append style={font=\footnotesize,},
+  										date coordinates in=x, xticklabel={\day.\month.},
+											xticklabel style={rotate=45,anchor=north east},
+											extra tick style={major grid style=red, xticklabel={\day.\month.}, ytick align=outside},
+  										tick label style={font=\footnotesize},
+  										x label style={at={(axis description cs:0.5,-0.5)},anchor=north,font=\footnotesize}]
+  		\nextgroupplot[	title=(a) Assignment 1.1,
+											extra x ticks={2015-10-02 16:00:00, 2015-10-07 16:00:00}, xtick={2015-09-25 16:00:00},
+											minor xtick={	2015-09-20 16:00:00, 2015-09-21 16:00:00, 2015-09-22 16:00:00,
+																		2015-09-23 16:00:00, 2015-09-24 16:00:00, 2015-09-26 16:00:00,
+																		2015-09-27 16:00:00, 2015-09-28 16:00:00, 2015-09-29 16:00:00,
+																		2015-09-30 16:00:00, 2015-10-01 16:00:00, 2015-10-03 16:00:00,
+																		2015-10-04 16:00:00, 2015-10-05 16:00:00},
+											date ZERO=2015-09-20,
+											ytick={0,2,4,6,8,12}, extra y ticks={5,10}, ymin=0]
+  	  \addplot+[scatter, only marks, mark=o, scatter src=explicit symbolic]
+				table [meta=points, col sep=comma] {data/first-submission-1-1.csv};
+				  		
+  		\nextgroupplot[	title=(b) Assignment 1.2,
+											extra x ticks={2015-10-02 16:00:00, 2015-10-07 16:00:00},
+											xtick={2015-09-25 16:00:00, 2015-10-09 16:00:00, 2015-10-16 16:00:00},
+											minor xtick={	2015-09-20 16:00:00, 2015-09-21 16:00:00, 2015-09-22 16:00:00,
+																		2015-09-23 16:00:00, 2015-09-24 16:00:00, 2015-09-26 16:00:00,
+																		2015-09-27 16:00:00, 2015-09-28 16:00:00, 2015-09-29 16:00:00,
+																		2015-09-30 16:00:00, 2015-10-01 16:00:00, 2015-10-03 16:00:00,
+																		2015-10-04 16:00:00, 2015-10-05 16:00:00, 2015-10-06 16:00:00,
+																		2015-10-08 16:00:00, 2015-10-10 16:00:00, 2015-10-11 16:00:00, 
+																		2015-10-12 16:00:00, 2015-10-13 16:00:00, 2015-10-14 16:00:00,
+																		2015-10-15 16:00:00},
+											date ZERO=2015-09-20,
+											ytick={0,2,4,6,8,12}, extra y ticks={5,10}, ymin=0]
+  	  \addplot+[scatter, only marks, mark=o, scatter src=explicit symbolic]
+				table [meta=points, col sep=comma] {data/first-submission-1-2.csv};
+  						
+  		\nextgroupplot[	title=(c) Assignment 2,
+  										ylabel=Points for the Assignment Round,
+  										every axis y label/.append style={font=\footnotesize, at={(0.0,1.3)}},
+  										xlabel=The First Submission Date,
+  										every axis x label/.append style={font=\footnotesize, at={(1.1,-0.2)}},
+											extra x ticks={2015-10-16 16:00:00, 2015-10-21 16:00},
+											xtick={2015-10-09 16:00:00, 2015-10-23 16:00:00},
+											minor xtick={	2015-10-03 16:00:00, 2015-10-04 16:00:00, 2015-10-05 16:00:00,
+																		2015-10-06 16:00:00, 2015-10-07 16:00:00, 2015-10-08 16:00:00,
+																		2015-10-10 16:00:00, 2015-10-11 16:00:00, 2015-10-12 16:00:00,
+																		2015-10-13 16:00:00, 2015-10-14 16:00:00, 2015-10-15 16:00:00,
+																		2015-10-17 16:00:00, 2015-10-18 16:00:00, 2015-10-19 16:00:00,
+																		2015-10-20 16:00:00, 2015-10-22 16:00:00, 2015-10-24 16:00:00,
+																		2015-10-25 16:00:00, 2015-10-26 16:00:00, 2015-10-27 16:00:00,
+																		2015-10-28 16:00:00},
+											date ZERO=2015-10-03,
+											ytick={0,5,15,25}, extra y ticks={10,20}]
+			\addplot+[scatter, only marks, mark=o, scatter src=explicit symbolic]
+				table [meta=points, col sep=comma] {data/first-submission-2.csv};
+  			
+  		\nextgroupplot[ title=(d) Assignment 3,
+											extra x ticks={2015-11-06 16:00:00, 2015-11-11 16:00},
+											xtick={2015-10-23 16:00:00, 2015-10-30 16:00:00, 2015-11-13 16:00:00},
+										  minor xtick={	2015-10-18 16:00:00, 2015-10-19 16:00:00, 2015-10-20 16:00:00,
+										  							2015-10-21 16:00:00, 2015-10-22 16:00:00, 2015-10-24 16:00:00,
+																		2015-10-25 16:00:00, 2015-10-26 16:00:00, 2015-10-27 16:00:00,
+																		2015-10-28 16:00:00, 2015-10-29 16:00:00, 2015-10-30 16:00:00,
+																		2015-10-31 16:00:00, 2015-11-01 16:00:00, 2015-11-02 16:00:00,
+																		2015-11-03 16:00:00, 2015-11-04 16:00:00, 2015-11-05 16:00:00, 
+																		2015-11-07 16:00:00, 2015-11-08 16:00:00, 2015-11-09 16:00:00,
+																		2015-11-10 16:00:00, 2015-11-12 16:00:00},
+											date ZERO=2015-10-18,
+											ytick={0,5,15,25}, extra y ticks={10,20}]
+  	  \addplot+[scatter, only marks, mark=o, scatter src=explicit symbolic]
+				table [meta=points, col sep=comma] {data/first-submission-3.csv};
+  			
+  	\end{groupplot}
+  \end{tikzpicture}
+	\captionsetup{singlelinecheck=off}
+  \caption[asdf]{\small{Students' first submissions compared with the points achieved for the assignment round. 
+  											The late penalty is applied where necessary. The two horizontal lines indicate the 
+												minimum points to pass the assignment and the maximum points awarded without bonus 	
+												functionality. The vertical lines indicate the deadline and the late submission
+												deadline.}}
+  \label{figure:firstsubmissions}
+\end{figure}
+
+Figure~\ref{figure:firstsubmissions} reveals that significant number of students started working on the assignment only after the deadline for \emph{Programming 1} had passed. There is also a slight indication that those who began working on their assignment closer to the deadline received more often less points than those who started on the assignment right when it opened. Unsurprisingly, students had first submission to the assignment 1.2 slightly later than for the assignment 1.1, which is most likely explained by the students first completing the assignment 1.1 before moving onto assignment 1.2. Despite the encouragement from the course staff, not many students started working on the second or third assignments earlier than after the deadline in \emph{Programming 1} course.
+
+
+\section{Summary}
+
+We had no hypothesis for the number of trial submissions students would make each round. It was expected that more difficult assignments would receive more submissions, which they did. However, five submissions per students to the first round and twenty submissions per students to the second and the third rounds on average seems quite little. We suspect that there would have been more trial runs with a local GUI simply because the cost of an execution would have been lower. The number of failed submissions --- code that did not compile --- was on the other hand surprisingly high. The dependencies between the logic code and the GUI code were non-existent and nearly all compilation errors should have been avoidable.
+
+The comparison of the number of submissions per student and the reached points revealed that generally those students who used more than the average number of submissions reached higher points. However, there were outliers; some students had a great number of submissions but reached only average points. The behaviour is more distinct in inspection of the number of submissions per students compared with the points for the whole course. However, just by looking at the data it is impossible to name a reason why some students used so much more submissions than others. Some further inspection of first submission dates and the number of submission is synthesised in Appendix~\ref{appendix:first-vs-number}, but it revealed no clear pattern for submission numbers.
+
+The analysed compilation times revealed clearly what had already been observed during the course. The compilation takes too long, and there are problems when the submissions of several students coincide. The system with its current speed is not a viable replacement for local GUIs.
+
+Analysis of submission dates revealed that many students started working on the assignments only three days before deadline. Although this kind of behaviour was expected, it was surprising that so few students altered their schedule despite all encouragements to start earlier and the fact that the compilation took long and thus slowed down the development. The analysis revealed that the students who started working on the assignment closer to the deadline received on average slightly less points.

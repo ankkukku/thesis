@@ -1,0 +1,332 @@
+\chapter{Analysis of Students' Views}
+\label{chapter:students}
+
+Students' views were collected through a questionnaire after the first three assignment rounds. In addition to the questionnaire, some students were interviewed to enhance the results gathered through the questionnaire. Additionally, students' attitudes were accessed after each round through assignment feedback forms. The questionnaire is the primary source for students' feedback and other sources authenticate and enrich the feedback gathered from the questionnaire. The feedback forms allowed to try and address some issues already during the course in addition to verifying the results of the questionnaire and the interviews.
+
+This chapter covers students' views accumulated from all three sources mentioned above. First, the student questionnaire is discussed in Section~\ref{section:sq}. The insights drawn from assignment feedback forms and interviews are presented in Sections~\ref{section:assignmentFeedback} and~\ref{section:interviews} respectively. Finally, a summary that combines all findings is presented in Section~\ref{section:studentSum}.
+
+
+\section{Student Questionnaire}
+\label{section:sq}
+
+
+\subsection{Data Collection}
+
+The student questionnaire was open for all students in the \emph{Programming Studio 1: Media Programming} course. Of one hundred and seventy initially registered students, one hundred and fifty were actively completing the course after the first three assignment rounds. The questionnaire, which you can find in Appendix~\ref{appendix:studentquestionnaire}, was given entirely in Finnish and did not include any background information questions.
+
+The questionnaire had a short description about the implementation of the system, where the distinction between the A+ system and the server was emphasised. It was stated that the A+ system is responsible for accepting students' submissions and forwarding them to the compilation server, which returns the resulting JavaScript for the student to try out. The students were asked to concentrate especially on the server related aspects of the service.
+
+The questionnaire concentrated on three themes; usefulness, ease of use, and user experience of the system. Each category consisted of four Likert items on a five level scale from \emph{completely disagree} to \emph{completely agree} and an open field for supplying any comments related to the category. At the end of the questionnaire, students were asked if they had any specific problems while using the system and if they had any ideas on what parts of the service should be developed and what were the most useful ones.
+
+After submitting the questionnaire students were forwarded to another form through which they could submit their contact information in order to receive bonus points for the course and volunteer for a separate interview. The contact information form had fields for the respondents' name and email address and asked to choose if they wanted to participate in the interview \emph{rather alone}, \emph{rather in a group}, \emph{does not matter} or did not want to participate in the interview at all.
+
+
+\subsection{Results}
+
+The student questionnaire received fifty responses, which is about a third of all the potential respondents. All but one of the respondents provided their free-form comments in Finnish and thus all citations in this section are translated. Even though no background information was asked, we can conclude some facts about the respondents from responses to the contact information form. At least forty-three respondents used EDCAT for all of the first three assignment rounds, one respondent did not use the system for the first assignment round, while six respondents did not provide any contact information and cannot be identified. Forty-three out of forty-four known respondents completed the course successfully.
+
+
+\subsubsection*{Usefulness}
+
+The respondents were first asked to evaluate the usefulness of the system and the responses to this category are compiled to Figure~\ref{figure:usefulness}. Every statement of the usefulness category scored positively with more than half of the answers being \emph{agree} or \emph{completely agree}. With the broad statement, \emph{I found the system useful}, twenty-five respondents agreed and eleven strongly agreed while only three respondents strongly disagreed and four disagreed. The statement that using the system was helpful while solving the assignments scored quite similarly. The respondents somewhat disagreed more with the statement that the system was helpful in revealing defects in student's program code. Similarly, the statement which asked students to evaluate if the use of the system helped them to understand the functioning of their code received milder responses with respondents choosing \emph{neither agree nor disagree}.
+
+% Code from Christian Feuersänger	
+% http://tex.stackexchange.com/questions/54794/using-a-pgfplots-style-legend-in-a-plain-old-tikzpicture#54834
+
+% argument #1: any options
+\newenvironment{customlegend}[1][]{
+	\begingroup
+	% inits/clears the lists (which might be populated from previous axes):
+	\csname pgfplots@init@cleared@structures\endcsname
+	\pgfplotsset{#1}
+}{
+	% draws the legend:
+	\csname pgfplots@createlegend\endcsname
+	\endgroup
+}
+
+% makes \addlegendimage available (typically only available within an axis environment):
+\def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
+\definecolor{color1}{HTML}{B7DFCB}
+\definecolor{color2}{HTML}{5ABAD1}
+\definecolor{color3}{HTML}{3984B6}
+\definecolor{color4}{HTML}{264992}
+\definecolor{color5}{HTML}{161F63}
+
+\pgfplotsset{grid style={dashed,gray}}
+\pgfplotsset{minor grid style={dotted,gray}}
+
+\begin{figure}[t!] %Usefulness
+  \begin{tikzpicture}
+	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=0pt}]
+	  \nextgroupplot[title=Usefulness, title style={xshift=3cm}, width=0.55\textwidth,
+					 xbar stacked, xmin=-90, xmax=0, anchor=south, xtick={-80,-60,-40,-20},
+					 xticklabel={\pgfmathprintnumber{\tick}\%},
+					 minor xtick={-10,-30,-50,-70},
+					 ytick={4,3,2,1}, yticklabels={S1.1,S1.2,S1.3,S1.4}, yticklabel style={font=\small},
+					 xmajorgrids=true, xminorgrids=true]
+		\addplot[draw=none, fill=color3] coordinates {(-7,4) (-3,3) (-12,2) (-7,1)}; % ei samaa eikä eri mieltä
+		\addplot[draw=none, fill=color2] coordinates {(-10,4) (-22,3) (-16,2) (-8,1)}; % eri mieltä
+		\addplot[draw=none, fill=color1] coordinates {(-4,4) (-6,3) (-8,2) (-6,1)};% täysin eri mieltä
+	  \nextgroupplot[
+					xbar stacked, xmin=0, xmax=90, width=0.55\textwidth,
+					xticklabel={\pgfmathprintnumber{\tick}\%}, xticklabel style={font=\small},
+					minor xtick={10,30,50,70}, ytick=\empty,
+					xmajorgrids=true, xminorgrids=true]
+		\addplot[draw=none, fill=color3] coordinates {(7,4) (3,3) (12,2) (7,1)}; % ei samaa eikä eri mieltä
+		\addplot[draw=none, fill=color4] coordinates {(54,4) (56,3) (44,2) (50,1)}; % samaa mieltä
+		\addplot[draw=none, fill=color5] coordinates {(18,4) (10,3) (8,2) (22,1)}; % täysin sama mieltä
+	  \end{groupplot}
+	\begin{customlegend}[width=\textwidth,
+		legend entries={completely disagree, disagree, neither agree nor disagree, agree, completely agree},
+		legend style={at={(2.73,-1.40)}, anchor=north, font=\footnotesize},
+		legend columns=2, transpose legend,
+		/tikz/every even column/.append style={column sep=0.6cm}]
+	  \addlegendimage{area legend,color1,fill=color1}
+	  \addlegendimage{area legend,color2,fill=color2}
+	  \addlegendimage{area legend,color3,fill=color3}
+	  \addlegendimage{area legend,color4,fill=color4}
+	  \addlegendimage{area legend,color5,fill=color5}
+	\end{customlegend} 
+  \end{tikzpicture}
+  \captionsetup{singlelinecheck=off,width=\textwidth,font=small,skip=22pt}
+  \caption[capt]{The results of the usefulness category in the student questionnaire. The bar to the left of center
+  							 shows negative reactions --- \emph{completely disagree} and \emph{disagree} --- and half of neutral
+							 	 responses while the bar to the right of center shows the positive reactions --- \emph{agree} and
+								 \emph{completely agree} --- and half of neutral responses. The amounts are shown as percentages.
+								 The Likert items of this category are listed below.
+	  \begin{itemize}
+		\item [S1.1] Use of the system helped me to solve given assignments
+		\item [S1.2] Use of the system helped me to find concealed defects in my program
+		\item [S1.3] Use of the system helped me to understand functioning of the code I wrote
+		\item [S1.4] I found the system useful
+	  \end{itemize}
+  }
+  \label{figure:usefulness}
+\end{figure}
+
+In the free-form comment section, respondents left mostly positive feedback. However, there were five commenters who were generally dissatisfied with EDCAT and six commenters who hoped for a better support for debugging specifically. Most of the dissatisfied commenters provided nothing more than mere complaints. Blame was given especially to systems performance times with such comments as "\emph{the submission system could as well have been replaced with a better working implementation}" and "\emph{-- the assessment server completely stopped working under even a small stress, I was unable to work with it}".
+
+However, one of the negative commenters provided more detailed criticism. The respondent blamed EDCAT as being useless for debugging because there were no error messages and it was not possible to test methods separately, because a mistake in one method affected all other methods. Additionally, the respondent was dissatisfied with EDCAT because in the assignments on sound and image manipulation there was no other way of knowing if the code was correct than superficial evaluation. The respondent was equally displeased with the fact that students were encouraged to write their own tests but it was not possible because they were not provided with sample output for programs. 
+
+The feedback that concentrated on debugging features was generally positive but blamed the lack of visible error messages. The commenters mentioned that it was possible to detect if the program was not functioning correctly, but there often was no clue as to where to find the error. Though a couple of respondents mentioned using JavaScript console to find out what was wrong.
+
+All assignment rounds got some positive feedback, because most errors were visually detectable. However, a few respondents expressed dissatisfaction with the system in the third assignment round because all filters were applied to the image whenever any of the sliders managing a filter was moved, albeit this feature helped one commenter to find an error in their code. One respondent thought that perhaps it was even a good thing that EDCAT did not provide detailed help to finding errors. Additionally, one respondent was bothered by not knowing how exactly the submitted code was handled by the system and what was the hoped outcome; the respondent suggested that the system could indicate if the submitted solution was similar or close to the model solution.
+
+Otherwise free-form feedback related to the usefulness of EDCAT was mostly positive encouragements. The respondents mentioned for example that it was motivating to play with one's code because of the system, and that the best thing about the system was that one could really see one's own work as a "\emph{modified media content}" or "\emph{do something concrete}". One of the respondents thought that EDCAT provided a handy way of concealing GUI code and permitted the student to concentrate on a well-defined problem.
+
+\subsubsection*{Ease of Use}
+
+\begin{figure}[b!] %Ease of use
+  \begin{tikzpicture}
+	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=0pt}]
+	  \nextgroupplot[title=Ease of use, title style={xshift=3cm}, width=0.55\textwidth,
+	  				 xbar stacked, xmin=-90, xmax=0, anchor=south, xtick={-80,-60,-40,-20},
+					 xticklabel={\pgfmathprintnumber{\tick}\%},
+					 minor xtick={-10, -30, -50, -70},
+					 ytick={0,-1,-2,-3}, yticklabels={S2.1, S2.2, S2.3, S2.4}, yticklabel style={font=\small},
+					 xmajorgrids=true, xminorgrids=true]
+	  \addplot[draw=none, fill=color3] coordinates{(-8,0) (-5,-1) (-11,-2) (-7,-3)}; % ei samaa eikä eri mieltä
+	  \addplot[draw=none, fill=color2] coordinates{(-4,0) (-20,-1) (-46,-2) (-6,-3)}; % eri mieltä
+	  \addplot[draw=none, fill=color1] coordinates{(-2,0) (-4,-1) (-24,-2) (-2,-3)}; % täysin eri mieltä
+	  \nextgroupplot[xbar stacked, xmin=0, xmax=90, width=0.55\textwidth,
+	  				 xticklabel={\pgfmathprintnumber{\tick}\%}, ytick=\empty,
+					 minor xtick={10, 30, 50, 70},xmajorgrids=true, xminorgrids=true]
+	  \addplot[draw=none, fill=color3] coordinates {(8,0) (5,-1) (11,-2) (7,-3)}; % ei samaa eikä eri mieltä
+	  \addplot[draw=none, fill=color4] coordinates {(50,0) (46,-1) (4,-2) (58,-3)}; % samaa mieltä
+	  \addplot[draw=none, fill=color5] coordinates {(28,0) (20,-1) (4,-2) (20,-3)}; % täysin sama mieltä
+	\end{groupplot}
+	\begin{customlegend}[width=\textwidth,
+		legend entries={completely disagree, disagree, neither agree nor disagree, agree, completely agree},
+		legend style={at={(2.73,-1.40)}, anchor=north, font=\footnotesize},
+		legend columns=2,
+		transpose legend,
+		/tikz/every even column/.append style={column sep=0.6cm}]
+		% the following are the "images" and numbers in the legend
+		\addlegendimage{area legend,color1,fill=color1}
+		\addlegendimage{area legend,color2,fill=color2}
+		\addlegendimage{area legend,color3,fill=color3}
+		\addlegendimage{area legend,color4,fill=color4}
+		\addlegendimage{area legend,color5,fill=color5}
+	\end{customlegend} 
+  \end{tikzpicture}
+  \captionsetup{singlelinecheck=off,width=\textwidth,font=small,skip=22pt}
+  \caption[boop]{The results of the ease of use category in the student questionnaire. The Likert items of this
+  							 category are listed below.
+		\begin{itemize}
+		  \item [S2.1] It was easy for me to learn to use the system
+		  \item [S2.2] Interaction with the system was clear and understandable
+		  \item [S2.3] I would have needed more support from course personnel to use the system
+		  \item [S2.4] I think that the system was in its entirety easy to use
+		\end{itemize}
+	}
+  \label{figure:ease}
+\end{figure}
+
+The ease of use of the system was similarly estimated with four Likert items, whose responses are compiled to Figure~\ref{figure:ease}. The respondents evaluated the ease of use of the system positively through each statement. Roughly four fifths of the respondents answered either \emph{agree} or \emph{completely agree} in respect of statements that argued that the system was easy to learn to use, and in its entirety easy to use. Quite a similar response got the statement that evaluated if students would have needed more support from course personnel; 70 percent of respondents answered either \emph{disagree} or \emph{strongly disagree}. The only statement that received a milder support was the one claiming that interaction with the system was clear and understandable; only two thirds of respondents chose \emph{agree} or \emph{completely agree} and slightly over a fifth of the respondents chose \emph{disagree} or \emph{completely disagree}.
+
+In the free-form comment section students left feedback mostly unrelated to EDCAT. Five out of seventeen students who left a reply to this section concentrated on the fact that students were required to make a separate submission in order to turn in their solution for grading and that web-UI was intended merely for experimenting with the functionality of their code. One respondent also mentioned that the system did not provide sufficient information about the queue situation; the position in the queue and the time estimate were not updated after the submission. A few students hoped that they had heard about the JavaScript console sooner and one of them noted that JavaScript code was not exactly the same as the Scala code, which made things more complicated.
+
+Otherwise the respondents were generally satisfied with the ease of use of EDCAT, but there were also improvement suggestions and some displease. One respondent said that the system was simple to use, but that "\emph{the test design for individual rounds was varying and often left to hope for}." Again the compilation time was mentioned by one respondent. Similarly another respondent gave a concrete suggestion to make the filters in the image manipulation round possible to turn on and off, which could help to determine which filter does not perform accurately and possibly decrease the number of unnecessary submissions. 
+
+
+\subsubsection*{User Experience}
+
+The user experience of the system was evaluated again through four Likert items, whose responses are compiled to Figure~\ref{figure:UX}. Unlike the previous question categories, respondents were clearly unsatisfied with the user experience of the system. Seventy-four percent of the respondents thought they did not receive feedback from the system sufficiently quickly answering either \emph{disagree} or \emph{completely disagree} to the first statement in the category. The third statement, which evaluated if the students received sufficient information about runtime exceptions, received almost equally poor score of sixty-eight percent answering either \emph{disagree} or \emph{completely disagree}.
+
+\begin{figure}[b!]%User experience
+  \begin{tikzpicture}
+	\begin{groupplot}[group style={group size=2 by 1, horizontal sep=0pt}]
+	  \nextgroupplot[title=User experience, title style={xshift=3.1cm}, width=0.55\textwidth,
+	  				 xbar stacked, xmin=-90, xmax=0, anchor=south, xtick={-80,-60,-40,-20},
+					 xticklabel={\pgfmathprintnumber{\tick}\%},
+					 minor xtick={-10,-30,-50,-70},
+					 ytick={0,-1,-2,-3}, yticklabels={S3.1,S3.2,S3.3,S3.4}, yticklabel style={font=\small},
+					 xmajorgrids=true, xminorgrids=true]
+	  \addplot[draw=none,fill=color3] coordinates{(-2,0) (-9,-1) (-11,-2) (-14,-3)}; % ei samaa eikä eri mieltä
+	  \addplot[draw=none,fill=color2] coordinates{(-48,0) (-12,-1) (-44,-2) (-18,-3)}; % eri mieltä
+	  \addplot[draw=none,fill=color1] coordinates{(-26,0) (-12,-1) (-24,-2) (-16,-3)}; % täysin eri mieltä
+	  \nextgroupplot[xbar stacked, xmin=0, xmax=90, width=0.55\textwidth,
+	  				 xticklabel={\pgfmathprintnumber{\tick}\%},
+					 minor xtick={10,30,50,70},ytick=\empty,
+					 xmajorgrids=true, xminorgrids=true]
+	  \addplot[draw=none, fill=color3] coordinates {(2,0) (9,-1) (11,-2) (14,-3)}; % ei samaa eikä eri mieltä
+	  \addplot[draw=none, fill=color4] coordinates {(18,0) (46,-1) (10,-2) (32,-3)}; % samaa mieltä
+	  \addplot[draw=none, fill=color5] coordinates {(4,0) (12,-1) (0,-2) (6,-3)}; % täysin sama mieltä
+	\end{groupplot}
+	\begin{customlegend}[
+		legend entries={completely disagree, disagree, neither agree nor disagree, agree, completely agree},
+		legend style={at={(2.73,-1.40)}, anchor=north, font=\footnotesize},
+		legend columns=2,
+		transpose legend,
+		/tikz/every even column/.append style={column sep=0.6cm}]
+		% the following are the "images" and numbers in the legend
+		\addlegendimage{area legend,color1,fill=color1}
+		\addlegendimage{area legend,color2,fill=color2}
+		\addlegendimage{area legend,color3,fill=color3}
+		\addlegendimage{area legend,color4,fill=color4}
+		\addlegendimage{area legend,color5,fill=color5}
+	\end{customlegend} 
+  \end{tikzpicture}
+  \captionsetup{singlelinecheck=off,width=\textwidth,font=small,skip=22pt}
+  \caption[boop]{The results of the user experience category in the student questionnaire. The Likert items of this
+  							 category are listed below.
+	  \begin{itemize}
+		\item [S3.1] I received feedback from the system sufficiently fast
+		\item [S3.2] I trusted that I could try out my code with the user interface returned by the system
+		\item [S3.3] I received sufficient information about runtime exceptions
+		\item [S3.4] I liked using the system
+	  \end{itemize}
+  }
+  \label{figure:UX}
+\end{figure}
+
+In the free-form comment section for user experience, most respondents --- as many as twenty-two out of twenty-eight --- concentrated on EDCAT's performance time. Of those, one respondent thought that the system did not even need to perform faster in this kind of use, while others mostly thought that the system performed too slowly. In addition to speed issues, the respondents again mentioned that during runtime, exceptions were not visible other than in JavaScript console. Some respondents had misinterpreted that the system was lagging when in fact their code had caused a runtime exception they did not notice. These issues worsened during the third assignment round when compilation times were especially poor and there were many submissions. One commenter said that "\emph{the queue situation was at times unreasonable}" and some reported waiting twenty or thirty minutes at times and the system even crashing under stress.
+
+Some minor issues included that A+ did not update the submission page; it had seemed that the submission had not yet reached the server when it was already compiling and similarly the page required refreshing to get the compiled result after submission. Additionally, in the first and second assignment rounds and at the start of the third assignment round, refreshing the submission page caused a new submission, which caused dissatisfaction with one respondent before the issue got fixed. One respondent mentioned also that UI did not always load when it was ready in the second and third assignment rounds. This issue was related to the image not being loaded before the canvas and the rest of the UI was drawn. One respondent also hoped that the GUI for sound manipulation had provided a simple undo functionality for filters and better functionality to make sure that the solution was correct.
+
+
+\subsubsection*{Problems, Improvement Ideas and Useful Features}
+
+At the end of the student questionnaire there were three open-ended questions regarding any specific problems with using EDCAT, improvement suggestions and the most useful features. To the question "\emph{If you had any explicit problems while using the system, what were they related to}" only seventeen respondents provided a reply. In addition to already mentioned issues related to runtime exceptions and performance time there was really no new usable information. One respondent claimed that the files sometimes got corrupted between the compilation server and A+. However, there is no evidence of this and errors that might have seemed related to corrupt files were caused by a student uploading the same Scala file twice or uploading the compiled class file. Another respondent said that "\emph{pre-runtime exceptions (like NotImplementedError) thrown by Scala sometimes go to the web console}" instead of the pre-formatted box with compilation errors. However, NotImplementedError is thrown only after the method that has not been implemented is called after successful compilation at runtime.
+
+The second open-ended question; "\emph{What in your opinion should be improved in the system}" got similarly responses related mostly to runtime exceptions and performance time. However, the respondents left somewhat useful suggestions as well. One respondent suggested that there could be something closer to a debug UI with smaller data amounts, for example RGB values for an area of nine times nine pixels from which one could validate that an image filters works as expected. This suggestion is somewhat conflicting with the goal that students should write their own tests and validate their program functionality themselves; the described suggestion is very close to what a grader application would do except giving points. Another student suggested that students should not be allowed to have more than one submission in the compilation queue at any given time, which would prevent unnecessary submissions and force students to examine the code they submit more closely.
+
+Some respondents suggested replacing the system with local GUIs, which in their opinion would make "\emph{testing faster and more helpful}". There were suggestions to add a console that is visible at all times and displays line prints and exceptions, or a commenting feature which could be useful when there are many submissions with varying level of functionality and one needs to find a specific one, or that when submitting the assignment with a pair also the other person could see it. Some respondents were displeased with separate submissions for grading and web-UI, and that the feedback forms for the assignment round were not better integrated in the system and they were unable to see if they had already filled the form or not. A few respondents wanted more openness in respect of how the system functioned, which would definitely have eliminated some confusion with the third assignment round.
+
+The final question of the student questionnaire asked "\emph{What functions and features were the most useful}". There were those who thought that the whole system was useless and those who thought that it was useful in general and had potential. The respondents mentioned testing in general, and a few especially with the sound manipulation assignment as well as the visual feedback they got while using web-UI and the interactive functionality. A few respondents thought that the most useful feature was that one could see their code in action as a part of some real program and that changing the code affected how the program functioned. Hiding the UI implementation and having multiple versions of one's code were similarly seen as useful features. One respondent apparently used EDCAT as a primitive version control and repository system while switching working stations.
+
+
+\section{Assignment Feedback Forms}
+\label{section:assignmentFeedback}
+
+\subsection{Data Collection}
+With every turned in assignment students were required to fill in a short feedback form that mainly concentrated on evaluating if the assignment and its instructions were successful and to track how much time students used on each assignment. Additionally, students were asked to report which parts they finished and if they implemented any bonus functionality that should be taken into account while grading. At the end of the form students could leave free-form feedback regarding to the assignment and feedback or suggestions regarding to the submission procedure.
+
+Giving feedback was mandatory for each assignment and the students who failed to leave feedback were given one point penalty. The field for submission procedure feedback was not mandatory and most students left it blank or filled with unrelated comments. However, possibly some students who did not participate in the student questionnaire were reached through the feedback form.
+
+
+\subsection{Results}
+
+The feedback forms were intended to catch issues related to EDCAT that could be addressed already during the course. For example, compilation time problems were brought up early on and worked on while the assignments were ongoing. Some problems with the A+ system, like the resubmissions on refresh, some guide texts and error formatting, were also corrected based on the student feedback already during the course.
+
+Like in the student questionnaire, compilation time and the possibility for local execution were the most often raised topics. Similarly, students complained lacking the sufficient information about runtime errors and the operational principles of the system and wished for a console to see error messages and prints. There were of course those who had no problem with the system, and were happy to see their code in action.
+
+The feedback for the first assignment round mostly showed how lost students were at the beginning of the course; the separate trial and grading submissions and even the feedback form were confusing for some. There were also some suggestions that were mentioned in the student questionnaire. One student suggested that the page featuring the web-UI should have a submission feature, so that the assignment could be submitted for grading immediately after one was convinced that it functioned correctly.
+
+The feedback for the second assignment mentioned that the web-UI did not work with Safari web browser. This became apparent only after the assignment was published and the students were notified only at the beginning of the deadline week. Additionally, some students had problems with the implementation of their own filters as they did not know the used sample rate, the students of course did not think of to ask the course staff for this information. 
+
+A few students mentioned having problems with the web-UI in their own environments; for some the sounds slowed down and for some increased in speed. The students circumvent the problem by switching to computers provided in the computer lab. Some students mentioned that the play progress indicator animation at times was not in sync with the actual playback of a sound. The lag could similarly be caused by a slow processor that is unable to calculate the indicator's position fast enough even though the thread repeating the sound is uninterrupted.
+
+For the second assignment, students had as well came up with UI-related suggestions. One student mentioned that perhaps it is undesired that the UI allows more than one sound to be repeated simultaneously. A few students hoped for a reset functionality so that the applied filter could be reversed and the sound returned to original with one button click. Now it required selecting another sound file before selecting the desired sound file again.
+
+The feedback for the third assignment was unsurprisingly centred on speed related issues. Similarly unsurprisingly, the students had not considered trying to develop their testing skills as a good strategy after experiencing discontent with compilation times in the three previous assignments. Based on the feedback, many students solely relied on EDCAT for testing. However, the students should not be blamed too roughly as the system was indeed unforgivably slow. In addition to speed issues, students raised the same issue as in the student questionnaire. It was much harder to pinpoint errors because all filters were applied to the image, even if it was fun to apply more than one filter to the image after having implemented all of them successfully.
+
+
+\section{Student Interviews}
+\label{section:interviews}
+
+
+\subsection{Data Collection}
+
+Out of fifty respondents for the student questionnaire, nineteen students volunteered for additional interview through contact information form. All volunteers were contacted by email and asked to select a time for an interview from given options. Finally, only eight students confirmed a suitable time and six interviews with one student and one interview with two students were held.
+
+The interviews were unstructured but followed the same basic outline. Before starting the actual interview, the interviewees were told that the purpose of the interview was to confirm the results already gathered through the student questionnaire. They were notified that the interviews would be used as a part of this thesis and what topics would be discussed during the interview. Then, all interviewees had a chance to ask any questions and were asked for a permission to record the interview, which all of them gladly gave. All interviews were held in Finnish and all excerpts have been translated retaining the meaning.
+
+The primary discussion was centred around four themes; programming experience, problem solving in general and related to EDCAT, the purpose of EDCAT, and the improvement of EDCAT. First the interviewees were asked to describe their programming experience and if it has been useful during the course. They were asked to describe what kind of problems they had encountered during the course and how they had gone on solving them. Then the focus was shifted toward EDCAT and interviewees were asked to define the purpose of the system. They were asked to reflect if the system had helped them and if they used some other methods of testing their program. Next, interviewees were asked to describe if they had any problems with the use of the system or encountered exceptions and how they worked around those kinds of a situation. Finally, the interviewees were then asked for improvement ideas and some ideas for yet unimplemented functionality were offered to interviewees for evaluation.
+
+
+\subsection{Results}
+
+Out of eight interviewees only two did not have relevant programming experience. Four interviewees had programming experience in Python, of those one had learned the language on their own while other three had completed an introductory programming course taught in Python. Of those, one interviewee had also completed an introductory course in C and a project course in Python and had some experience in Java from high school and one had completed the \emph{Programming 1} course and attempted to complete the \emph{Programming Studio 1} course the previous year completing roughly the first half of the assignments. The last two interviewees had the most relevant programming experience. One of the interviewees had previously completed an introductory programming course in Java and the \emph{Programming 1} course and the other interviewee had 10 years of programming experience overall and has been programming for work for the last three years including in Java.
+
+All interviewees with relevant programming experience thought that their previous experience was useful and helped to understand the problems in the assignments. The interviewees reported that even though Python experience was useful in the beginning, this course together with \emph{Programming 1} quite early on exceeded their programming knowledge especially in regard to object-oriented programming. The interviewee who had previously attempted to complete the course thought that this time round it was easier to estimate how long it would take to complete the assignments and work on them without teaching assistants' help.
+
+When asked what kind of problems the interviewees had had and what they felt was difficult, most interviewees mentioned getting started on the assignment and understanding the big picture based on the assignment instructions. A few interviewees mentioned that it is difficult to find help when starting on a new kind of problem while one interviewee thought that it is difficult to understand the code that is provided as a part of the assignment.
+
+\begin{displayquote}
+'-- -- if there is some ready-made code given, then of course when you are not used to reading others' [code], then especially in the beginning it took more time [to read and understand the code] -- -- [in the very first assignment] I was like "what does this mean? what is this?"\dots even though you didn't actually need to use [the code], it was in itself very confusing that there were some other [code]\dots "do I need to do something with this?".'
+\end{displayquote}
+
+To solve the problems, most interviewees had turned for help to teaching assistants and friends although it was not necessarily their first means of finding help. One interviewee, for instance, thought that it is not so useful to straight away ask for help and that one learns more while trying to solve a problem on their own. Reading the relevant documentations and the assignment instructions as well as solutions for previous assignments alongside the currently problematic code were also popular manners. One interviewee mentioned using the rubbed duck technique, while another mentioned that a clear error message is often useful and sufficient. However, the interviewee regretted having poor debugging skills and wished that they would have had more practise in the area. Finally, one interviewee mentioned using a pen and paper for sketching the problem and searching the web with a search engine.
+
+Most interviewees thought that EDCAT's purpose was to ensure that the final solution for the assignment was more or less working correctly and realised that using only EDCAT was not enough to extensively test their program.
+
+\begin{displayquote}
+'the purpose was to simplify testing the code, in a way it is the most important thing\dots to hide the details of the UI code\dots you only submit the functionality in a few files and hopefully it works'
+\end{displayquote}
+
+They thought that EDCAT had been useful. Some of them wrote their own unit tests or tested their solution with REPL. The interviewees thought that EDCAT was especially useful with the second and third assignment rounds. In the second assignment, one could compare their own solutions with the reference and in the third assignment it was useful to see the actual image and judge the result visually. Additionally, one interviewee mentioned that the system helped developing suggested bonus functionality.
+
+The interviewee who had tried to complete the course the previous year had had difficulties with setting up references to sound files for the local GUI program last time and thus thought EDCAT helped with that issue. However, the interviewee thought that local GUI allowed more flexibility and did not tie the development to an internet connection.
+
+A few interviewees had a different idea about the purpose of EDCAT. One thought that the system simulated the situation when one does not have access to all the code for a project and only knows the interface one needs to meet. Another interviewee trusted the system to advise if the solution was correct. The interviewee relied on the system as a sole method of testing and thought that it was not useful. The system did not reveal where the problems and errors lay and forced them to rely on the help of teaching assistants.
+
+The problems related to the use of EDCAT or encountered exceptions were minimal. The interviewees mentioned the speed of the system and the difficulty of finding the errors as the biggest problems encountered while using the system. One interviewee confessed to accidentally taking down the server, luckily well before deadline. However, there is no evidence of this ever happening. The most noticeable error messages were the result from compilation errors but one interviewee mentioned also seeing some error messages in the GUI. Some error messages were shown in the second assignment round as presented in Chapter~\ref{chapter:implementation}.
+
+When asked what things should be changed or improved if EDCAT is used in the future, the interviewees again brought up speed and debug functionality. They wished that error messages would be visible and not hidden in JavaScript console. This console could be useful also for elementary print line checks. Similarly as in the questionnaire, some interviewees were confused about points not showing and two submission areas; they hoped the submission could be streamlined and points shown.
+
+Some interviewees thought that the answer could lie in better directions on functioning and the use of the system. The operational principle of the system is quite unique; like nothing students have encountered before and different from the work methods used in \emph{Programming 1} that most students are taking simultaneously with \emph{Programming Studio 1}. Additionally, as the system is not intended to test the students' solution fully, there should be more support for writing good test programs.
+
+One interviewee said that necessarily nothing should be changed and another agreed noting that the system is as such already useful for the beginner. However, the interviewee continued, a more experienced programmer would probably want a local implementation to have a better possibility to study the functioning of their solution more closely. The interviewee, wished that there would have been a possibility to observe how the values in sound and image data changed after applying the filters. Another interviewee suggested that in the GUI for the third assignment all image filters should not be applied every time and could be turned on and off. Finally, an interviewee had a suggestion that one should be able to better compare and see the changes between one's own submissions, possibly similarly as between commits on \emph{github}.
+
+For functionality that was not implemented for this version of EDCAT, we had four ideas to test. The first idea was to add functionality for commenting on one's own submissions. This would allow private discussion about problems with teaching assistants and adding personal notes for different solutions to keep track of changes. The interviewees thought that it should not be a separate system but better integrated with Piazza that is already in use. Some interviewees thought that commenting could at some level be useful, especially if well implemented and it would be easy to clearly reference specific rows. However, a few interviewees noted that even though if the system better supported interaction with teaching assistants, the face-to-face help that one gets is still irreplaceable.
+
+The second suggestion was to add the possibility to view the instructor's solution without showing the code while the assignment is still due. The interviewees were not especially exited about this possibility. About half interviewees thought that there would be no harm and the other half did not see any use in it. As one interviewee noted, usually one knows what the desired outcome is and it is often more useful to think for oneself than to blindly compare with the correct solution.
+
+Another idea was to encourage interaction between students by allowing to similarly view other students' solutions without seeing the code before the final deadline. This idea got similarly little support. Although one interviewee thought that if combined with possibility for commenting it could help students who have similar problems. Another interviewee thought that this functionality could be useful only when bonus functionality is considered and other students' solutions are not interesting. The general opinion seemed to be that possibly the code of more advanced students could be interesting to see after deadline has passed.
+
+Finally, we tested an idea of having a possibility to download one's full solution for use in for example a portfolio. The interviewees thought that it would not be very useful although nor harmful either. The amount of code produced by students is quite minimal and the problems very trivial for the downloaded project to showcase anything interesting for possible employers.
+
+
+\section{Summary}
+\label{section:studentSum}
+
+In conclusion, all three sources of student feedback provided a uniform perspective into students' views. EDCAT was generally seen useful as it helped to showcase the functionality of one's code as well as hide the GUI code that was irrelevant to the solution of the assignment. However, EDCAT failed to support debugging because runtime error messages were not clearly visible. Additionally, the performance in regard to the speed and efficiency of EDCAT was weak.
+
+The students had very few problems with the use of EDCAT and they were mostly related to the general use of the system and not the assignment GUIs themselves. We had decided to have separate submissions for trial and grading submissions and award half points in the first assignment round as well as bonus points in all rounds meant that we could not easily use the point system built in A+ system, which proved confusing and annoying to some students. Furthermore, the page did not update with the JavaScript GUI when the compilation took long and it required the student to refresh the page from time to time.
+
+Many improvement suggestions indicated that students saw EDCAT more like a grader that would clearly tell if the solution was correct and where the problem areas are. Additionally, one common improvement suggestion, especially from more experienced students, was that the system should be more transparent and local GUIs would altogether be a better solution than EDCAT. However, there were also some suggestions that are definitely worth looking into in the future. For example, the submission procedure indeed is not optimal and should be streamlined and the suggestion to let students have only one submission in the queue for compilation would reduce the stress on the system.
+
+The interviews suggested that perhaps problem solving techniques and testing should be better supported and formally taught. EDCAT in some ways simplified the trial runs of the code but if one could not find the console the system was merely confusing and did not live up to the service provided with a local GUI. Additionally, commenting and possibly sharing features should be explored in the future.

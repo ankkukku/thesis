@@ -1,0 +1,38 @@
+\small{
+	\begin{tikzpicture}[>=open triangle 45]
+	
+		\umlactor[x=-4.2, y=6]{student}
+
+		\draw (-6, 3.5) node[minimum height=0.7cm,minimum width=1.5cm,draw] (G1) {GUI (JS)};
+		\draw (-2, 3.5) node[minimum height=0.7cm,minimum width=3.0cm,draw] (S1) {SOLUTION};
+		
+		\draw[bend left]  (student.340) to node [auto] {} (S1);
+		\draw[bend left,->]  (G1.100) to node [auto] {} (student.200);
+						
+		\draw (-4.2, 1) node[minimum height=2cm,minimum width=2cm,draw,align=center] (A) {A+};
+		
+		\draw[bend left,->]  (S1) to node [auto] {} (A.40);
+		\draw[bend left]  (A.140) to node [auto] {} (G1.260);
+
+		\draw (5, 1) node[minimum height=2cm,minimum width=2cm,draw,align=center] (G2) {GRADER};
+		
+		\umlinherit[anchors=25 and 155]{A}{G2}
+		\umlinherit[anchors=205 and -25]{G2}{A}
+
+		\draw (0.5, 1.467) node[minimum height=0.7cm,minimum width=1.5cm,draw, fill=white] (S2) {SUBMISSION};
+		\draw (0.5, 0.537) node[minimum height=0.7cm,minimum width=1.5cm,draw, fill=white] (J) {JavaScript};
+		
+		\draw (-2, -1.5) node[minimum height=0.7cm,minimum width=1.5cm,draw,align=center] (CM) {Course \\ Management};
+		\draw (3, -1.5) node[minimum height=0.7cm,minimum width=1.5cm,draw,align=center] (EM) {Exercise \\ Materials};
+		
+		\umlactor[x=0.5, y=-3, scale=1.5]{teacher}
+		
+		\draw[bend left=15]  (teacher) to node [auto] {} (CM.220);
+		\draw[bend left=15,->]  (CM.180) to node [auto] {} (A);
+
+		\draw[bend right=15]  (teacher) to node [auto] {} (EM.295);
+		\draw[bend right=15,->]  (EM.10) to node [auto] {} (G2.247);
+
+	
+	\end{tikzpicture}
+}

@@ -1,0 +1,145 @@
+\chapter[Teaching Assistant Questionnaire]{Teaching Assistant \\ Questionnaire}
+\label{chapter:taq}
+
+\section{Data Collection}
+The questionnaire for teaching assistants was conducted at the very end of the Programming Studio 1: Media Programming course. All thirteen of course's teaching assistants, who were involved in helping students with the programming assignments and grading the assignments, provided their response to the questionnaire. You can find the teaching assistant questionnaire in Appendix~\ref{appendix:TAquestionnaire}.
+
+First, the teaching assistants were asked if they had previously worked in a course where their tasks included grading students' programming assignments. Upon a positive reply, they were asked to evaluate if EDCAT had helped them and how, or if perhaps it had caused more work compared with the courses where it is not used.
+
+The rest of the questionnaire was organised around two themes; \emph{assisting students with assignments} and \emph{grading students' assignments}. Both were presented as a checkbox grid where for each presented statement the respondents were asked to tick the boxes for those assignment rounds for which the statement holds true. Both statement groups were followed by an open-ended question for commenting on any of the statements or the previous theme in general. Finally, at the end of the questionnaire there was one open-ended question for any comments regarding EDCAT.
+
+\section{Results}
+
+Out of thirteen respondents, only three had previous experience with grading programming assignments. Coincidentally, at least some of their experience comes from the previous iterations of \emph{Programming Studio 1} course, where the first three assignments have been very similar in the previous years. One of the respondents found that EDCAT helped form a general idea about the level of functionality of the student's solution. The remaining two, thought that EDCAT caused them extra work. One of them mentioned that there is at least one more step to try student's solution, as the code first needs to be uploaded to the server; the other felt that when the student's solution was greatly defective, online GUI made it more difficult to find the bugs compared with a locally run GUI.
+
+\subsection{Assisting Students with Assignments}
+
+The first statement category, \emph{assisting students with assignments}, consisted of five statements; the first four were set to map out how teaching assistants used EDCAT while helping students to solve their assignments and the final statement asked to estimate if online testing GUI was useful while helping students. All statements, translated into English, and the summary of responses can be seen in Figure~\ref{figure:helping}.
+
+\begin{figure}[t!] %Helping
+  \centering
+  \begin{tikzpicture}
+	\begin{axis}[title=Assisting students with assignments,
+	  			 ybar=5pt, ymin=0, ymax=13, ytick={0, 5, 10}, ylabel={$n=13$},
+				 grid=major, axis on top, tick align=inside,
+				 x grid style={draw=none}, major grid style={solid,white},
+				 enlargelimits={true, 0.15}, xtick=data,
+				 symbolic x coords={S1.1, S1.2, S1.3, S1.4, S1.5},
+				 nodes near coords,
+				 legend style={at={(0.5,-0.20)}, anchor=north, legend columns=-1,
+				 font=\footnotesize},
+				 /tikz/every even column/.append style={column sep=1.0cm},
+				 height=207pt, width=\textwidth]
+	  \addplot[draw=none, fill=color3] % Kierros 1
+		coordinates {(S1.1,11) (S1.2,10) (S1.3,9) (S1.4,3) (S1.5,8)};
+	  \addlegendentry{Round 1}
+	  \addplot[draw=none, fill=color2] % Kierros 2
+		coordinates {(S1.1,11) (S1.2,12) (S1.3,9) (S1.4,2) (S1.5,8)};
+	  \addlegendentry{Round 2}
+	  \addplot[draw=none, fill=color1] % Kierros 3
+		coordinates {(S1.1,11) (S1.2,10) (S1.3,9) (S1.4,2) (S1.5,7)};
+	  \addlegendentry{Round 3}
+	\end{axis}
+  \end{tikzpicture}
+  \captionsetup{singlelinecheck=off,width=\textwidth,font=small,skip=20pt}
+  \caption[asdf]{The amounts of positive answers to the below statements from the teaching assistant questionnaire.
+	  \begin{itemize}
+		\item [S1.1] I utilised online testing GUI while tutoring students at computer lab sessions.
+		\item [S1.2] We ran student's program code together with the student.
+		\item [S1.3] I ran student's program code alone.
+		\item [S1.4] I utilised online testing GUI while tutoring students via IRC or Piazza.
+		\item [S1.5] I think that online testing GUI was useful while assisting students to solve programming 
+		  			 assignments.
+	  \end{itemize}
+  }
+  \label{figure:helping}
+\end{figure}
+
+Ten respondents reported both utilising EDCAT while tutoring students at computer lab sessions as well as running student's program code together with the student in all the first three assignment rounds. One respondent agreed with the first two statements in regard to only the second and third assignment rounds, which leaves two respondents who both agreed with one of the statements on only one round; one respondent reported utilising EDCAT while tutoring students at computer lab sessions in the first assignment round, and other reported running student's program code together with the student in the second assignment round. For the third statement, where respondents were asked to state in which assignment rounds they ran students' program code alone, nine respondents provided an affirmative response for all the first three assignments rounds. 
+
+The first three statements in the first statement group were especially intended to estimate if EDCAT is a useful tool while helping students to solve their assignments at lab sessions. However, the theme of the questions was stated clearly only in the open-ended question at the end of the statement group which left room for the misinterpretation of especially the second and the third statements. The responses provided for the first three statements in this group are somewhat contradictory considering the intended meaning of the statements and do not necessarily provide a truthful picture about the extent of use of EDCAT at programming lab sessions.
+
+Only three respondents reported using EDCAT while remotely tutoring students via IRC or Piazza; of those, two used the system in all three assignment rounds, and one only for the first assignment round. Statistics in Piazza show that only two of the previously mentioned affirmative respondents contributed to students' questions in Piazza. Both provided their help in the first assignment round with issues that did not require accessing students' submissions. Additionally, Piazza's statistics revealed two active teaching assistants, who did not report utilising EDCAT while tutoring remotely. It is thus possible to draw a conclusion that EDCAT was mostly utilised while helping students through IRC, which is a fair assumption as Piazza has a feature for uploading files and including code snippets is much easier in comparison with IRC, which is strictly text based. Finally, both respondents who used EDCAT in all three assignment rounds to remotely assist students, recognised EDCATs utility in remote tutoring.
+
+Finally, concluding the \emph{assisting students with assignments} statement category, seven respondents think that EDCAT was useful for all three assignment rounds while assisting students with their assignments, while four respondents did not agree at all with the final statement. This leaves two respondents of whom one found that EDCAT was useful in the first and the other respondent in the second assignment rounds.
+
+%sanalliset
+The responses to the open-ended question at the end of the statement category reveal a generally positive attitude towards EDCAT. However, the system fell short of expected in regard to error messages and performance. The defects in students' program code were not always easy to find using only EDCAT as error messages were printed out in the JavaScript console and were not equivalent to those in Scala. Similarly, issues regarding compilation time and the consequent waiting time constituted a situation where debugging was forced to local environment and specifically REPL. As previously mentioned, EDCAT's utility in remote tutoring was recognised by most assistants who helped students through IRC and Piazza. Equally, a few respondents estimated that the system could have proved useful if they had helped students remotely.
+
+\subsection{Grading Students' Assignments}
+
+\begin{figure}[t!] %Grading
+  \centering
+  \begin{tikzpicture}
+	\begin{axis}[title=Grading students' assignments,height=207pt, width=0.9*\textwidth,
+				 ybar=5pt, ymin=0, ymax=13, ytick={0, 5, 10}, ylabel={$n=13$},
+				 grid=major, axis on top, tick align=inside,
+				 x grid style={draw=none}, major grid style={solid, white},
+				 enlargelimits={true, 0.15}, xtick=data,
+				 symbolic x coords={S2.1, S2.2, S2.3, S2.4, S2.5, S2.6},
+				 nodes near coords,
+				 legend style={at={(0.5,-0.20)}, anchor=north, legend columns=-1,
+				 font=\footnotesize},
+				 /tikz/every even column/.append style={column sep=1.0cm}
+				]
+	  \addplot[draw=none, fill=color3] % Kierros 1
+	  		coordinates {(S2.1,11) (S2.2,2) (S2.3,7) (S2.4,4) (S2.5,5) (S2.6,9)};
+	  \addlegendentry{Round 1}
+	  \addplot[draw=none, fill=color2] % Kierros 2
+	  		coordinates {(S2.1,12) (S2.2,1) (S2.3,12) (S2.4,5) (S2.5,7) (S2.6,10)};
+	  \addlegendentry{Round 2}
+	  \addplot[draw=none, fill=color1] % Kierros 3
+	  		coordinates {(S2.1,13) (S2.2,1) (S2.3,12) (S2.4,5) (S2.5,9) (S2.6,10)};
+	  \addlegendentry{Round 3}
+	\end{axis}
+  \end{tikzpicture}
+  \captionsetup{singlelinecheck=off,width=\textwidth,font=small,skip=20pt}
+  \caption[asdf]{The amounts of positive answers to the below statements from the teaching assistant questionnaire.
+		\begin{itemize}
+		  \item [S2.1] I downloaded students' program code to my own computer for grading.
+		  \item [S2.2] I ran students' program code locally on my own computer with a GUI.
+		  \item [S2.3] I ran students' program code locally against test classes.
+		  \item [S2.4] I submitted through A+ student's unaltered programming code to online testing GUI and
+		  			   tried the code there.
+		  \item [S2.5] I submitted student's altered (for example, I fixed bugs) program code through A+ to 
+		  			   online testing GUI and tried the code there. 
+		  \item [S2.6] I think that online testing GUI was useful while grading students' program code.
+		\end{itemize}
+  }
+  \label{figure:grading}
+\end{figure}
+
+The second statement category, \emph{grading students' assignments}, consisted of six statements. The first five statements were set to assess if teaching assistants, while grading, ran students' code locally with GUIs or test classes, or online with EDCAT. As in the first statement category, the final statement asked to estimate if online testing GUI was useful while grading students' program code. All statements, translated into English, and the summary of responses can be seen in Figure~\ref{figure:grading}.
+
+Nearly all of the respondents reported downloading students' program code for grading purposes. In the first round, one of the assistants did not participate in grading due to schedule restrictions, and thus did not need to download students' code. However, one of the respondents successfully managed to grade students' submission without downloading solutions in the first and second assignment rounds. The first two assignment rounds were quite simple, consequently most of the mistakes were revealed just by reading the code. Additionally, the GUI in the first two assignment rounds supported error detection quite well.
+
+For grading purposes, the teaching assistants were provided with example solutions including the original GUI Scala code written with Scala.js. Only two respondents used local GUIs for grading; one in all three assignment rounds, and one in only the first assignment round. Some assistants did not manage to correctly configure \emph{sbt} for their environment while others did not bother at all. Nearly all respondents utilised local test classes while grading; most in all of the first three assignment rounds, while only one in none of the assignment rounds.
+
+Out of thirteen respondents only two reported that they did not at any point submit students' solutions through A+. Four respondents systematically submitted students' unaltered solutions through A+, of whom two submitted also students' modified solutions in all three assignment rounds. Otherwise, there was no easily detectable pattern in how the respondents used A+ for grading students' assignments. It is clear that there were more submissions of students' altered solutions and the number grew as the course progressed and assignments became more complex.
+
+The view of all submission in A+ is searchable, and there is thus no necessity to upload students' code before trying it with online GUI if final solution was identical to one of the trial submissions. However, if one cannot easily see that one of the trial submissions is identical to the final one, if for example the student added comments to the code only after it appeared to function correctly, it is just easiest to submit the student's solution again. The increase in altered submissions is most likely related to the increase in the complexity of the assignments, and consequently increase in erroneous submissions. In order to identify the errors accurately, the assistants needed to correct the solutions and submit them through A+ to online testing GUI more often.
+
+Finally, as a final statement in the \emph{grading students' assignments} statement category, nine respondents think that EDCAT was useful for all three assignment rounds while grading students' assignments, while three respondents did not agree at all with the final statement. This leaves one respondent who found that EDCAT was useful in the second and third assignment rounds.
+
+%sanalliset
+The general opinion, drawn from the responses to the open-ended question at the end of the \emph{grading students' assignments} statement category, is that online testing GUI was quite useful when student's solution was more or less correct but did not provide enough support for analysing and correcting errors. One respondent found the online testing GUI especially useful in the second assignment round where it was possible to compare the waveform of a sound filtered with student's code against a filtered sound provided with the online testing GUI. Additionally, one respondent noted that online testing GUI provided a good platform for testing bonus functionality, which could not have been covered in tests written prior to grading.
+
+However, if there were many or severe faults in student's solution, which could even crash the online testing GUI, correcting the errors and ensuring that the alterations would fix the problem required a new submission. This took of course more time and effort than if the code would have been executed locally; the teaching assistants were not able to use the debugger and the compilation was quite slow on the server. Consequently, some respondents thought that there was no significant benefit to having the testing GUI online compared with situation where the testing GUI would have been distributed as a locally executable project. Of course, the locally executable project containing the GUI was distributed to the teaching assistants in each of the assignment rounds, but as previously mentioned some of the assistants did not even bother to try and configure \emph{sbt} in order to execute the project.
+
+\subsection{Overall Feedback}
+
+The respondents submitted encouraging feedback through the comment section at the very end of the questionnaire. Although they found also features that should be addressed, should the system be taken into use later on. Perhaps the biggest shortcoming with EDCAT was the long compilation time and the consequent queues. The students worked on and submitted the assignments mostly at the same time during computer laboratory sessions near the submission deadline, which of course aggravated the situation.
+
+There were also some specific issues in the implementation of the second and the third assignment rounds' GUIs. In the second assignment round, one of the model waveforms was not exactly the same as a waveform produced by a correctly implemented filter, which caused some confusion. Similarly, in the third assignment round, the design choice to have all image filters to be applied to the picture with each filter modification caused the GUI to crash if any of the filters had an error. This made error detection difficult, and at times it seemed that the GUI just was not responding. Additionally one assistant pointed out that the sample image was square, which made one aspect of multidimensional arrays unclear.
+
+Furthermore, the respondents found shortcomings not related to any specific assignment round. As previously mentioned, the compilation to JavaScript resulted in error messages that were not equivalent to those in Scala and the reference to where in code the error had occurred was often lost. One respondent thought that the system should have supported better printing debug messages, a method of debugging that is often preferred by novice programmers. On the other hand, another respondent saw that students relied on too much on EDCAT. Online testing often was their only means of ensuring the functionality of their program code, while many of the mistakes would have been detectable by a few tests through REPL and the related faulty submissions, which added to waiting times, avoidable. Additionally, one respondent thought that students could have benefited from viewing different kind of GUI code implemented from the beginning of the course as they need to build a GUI in their final assignment round.
+
+Finally, one respondent reported that many of the students thought it was neat that one's work was visible in action in-browser. A few respondents recognised that it was useful that the GUI could be updated after it had been made available without the students needing to download new source code. Similarly, EDCAT had a clear advantage compared with a traditional instructor prepared GUI in remote tutoring. However, the respondent noted that perhaps the system should had only been used for remote tutoring and students be provided with a test suite for debugging. All in all, one respondent noted that from purely the assistant's point of view the system was nice. 
+
+\section{Summary}
+
+Ultimately, EDCAT was somewhat useful for teaching assistants, for both when helping students to solve assignments and when grading their submitted work. In computer lab sessions EDCAT did not have any advantage over having the GUI provided locally; The system underperformed and did not show error messages clearly. However, those teaching assistants that helped students via IRC or Piazza really benefited from having a quick access to students' submissions.
+
+When grading practices are considered, EDCAT had a clear advantage over the locally run GUIs; When student's submission functioned correctly or relatively correctly, there was no need to download the code and run it locally. However, EDCAT did not entirely eliminate the need for teaching assistants to download the code. Nearly all teaching assistants ran local tests in order to better evaluate students' code.
+
+During the grading process, the teaching assistants were subjected to the same shortcomings of the system as were the students. If there was a need to resubmit student's code, the compilation time was naturally longer than it would have been with a local GUI. In each round assistants were provided with code to locally execute students' code, however very few of them bothered setting up the tools to use the local distribution.

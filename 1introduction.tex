@@ -1,0 +1,38 @@
+\chapter{Introduction}
+\label{chapter:intro}
+
+One of the learning objectives in the introductory programming courses taught during the first semester at Aalto University is that after completing the courses students see that programming is useful. The most powerful way to showcase the utility of programming is to provide students with exercises that produce real-world usable programs with impressive user interfaces. Furthermore, the use of graphics has been recognised to be motivating in the computer science education literature. Nevertheless, the difficulty and the workload of the exercises should be contained within appropriate limits so that less proficient students will not struggle too much.
+
+Students are already familiar interacting with modern graphical user interfaces (GUI) at the beginning of their first programming course. However, graphics and GUI libraries are often not suitable for the novice programmer and may be difficult for even the experienced programmer to master. Introducing user interface programming at the beginning of the first programming course is not necessarily desirable although students should be kept motivated from the very beginning.
+
+Previously, we have provided students with GUIs as code that should be executed as a part of their solution. Students need to download potentially several source files and place them correctly within their own code project before they can experiment with their solution. Furthermore, the GUI source code is quite likely indecipherable for most students. An effort to try and understand the code may take up valuable time that could have been spent concentrating on the actual learning objectives of the assignment. Additionally, if some mistake has slipped through to the source code, it is really hard for students to identify let alone correct and an update distributed later on might not reach all students.
+
+Locally run GUIs have been implemented using Scala Swing which is powerful albeit tiresome to use. Compared with the user interfaces built for the web using HTML, CSS and JavaScript, it is much more difficult to achieve a modern and attractive GUI with Swing. Swing's event handling and nested components are quite similar to JavaScript's events and HTML's nested elements defined with tags. However, Swing's components need to be individually adjusted to achieve the desired visual outcome while HTML elements are easily modified with style sheet files.
+
+
+\section{Objectives}
+\label{section:objectives}
+
+To try and address the issues described in the previous section, we attempt to offer for students a system that would host GUIs that are more attractive, easier to build, update, distribute and execute. The objective of this thesis is to design, build, and have a trial run of an interactive web-based tool that provides CS1 students with instructor-prepared graphical user interfaces that combined with their Scala program assignments allow trial executions online.
+
+The tool, later, in order to facilitate referring to it, named EDCAT (short for Execution Doesn't Count As Testing), should provide an interface for uploading the logic code produced by students and return a GUI which uses that logic. The GUIs should be at least as easy to build and distribute as the ones build with Swing and distributed as zip-packages. The teaching staff will have access to all submissions and possibility to submit their own solutions. Finally, EDCAT should support debugging practices at least just as well as a locally executed GUIs similar to those that have been used previously.
+
+Hosting the GUI code on a server allows us to hide it from students so that they can concentrate on the assignments and not on understanding code that is too complex for their level. Similarly, web-based implementation allows us more easily to create better looking interactive GUIs. Furthermore, because the GUI code is hosted on a server for compilation, students do not need to download it. Thus, is is easy to update the instructor prepared GUI code when needed so that the update immediately reaches every student.
+
+\begin{figure}[b!]
+	\begin{center}
+		\input{images/what-changes.tex}
+	\end{center}
+	\caption[asdf]{With EDCAT, the GUI code is available on a server, where it is compiled together with student's solution and returned as a JavaScript program that can be ran in browser.}
+	\label{figure:what-changes}
+\end{figure}
+
+Figure~\ref{figure:what-changes} summarises the impact of the outlined system on the distribution of GUI code and program execution. From the teacher's point of view the change is minimal; instead of uploading GUI code to a server that students can directly access, she uploads the code to another server that will be in charge of compiling students' solutions. Students on the other hand need to download and upload less code. Additionally, the program will be executed in browser instead of launching it from the IDE.
+
+Forcing the program execution online provides an opportunity for the teacher to follow how students iterate their solution towards a fully functional program. Additionally, online execution can help with remote tutoring practices as teaching assistants can access students' unfinished submissions easily. Similarly, there is no necessity to download students' solutions for test runs or grading, when the exercises are graded by teaching assistants.
+
+
+\section{Structure of the Thesis}
+\label{section:structure} 
+
+This thesis is organised into four parts. The first part introduces the problem scope in Chapter~\ref{chapter:context} and presents relevant research from the fields of computer science education and web development in Chapters~\ref{chapter:cse} and~\ref{chapter:web} respectively. The second part presents the solution with Chapter~\ref{chapter:SystemDesign} that outlines system goals and restrictions and provides a description of the implemented system and Chapter~\ref{chapter:implementation} that describes the technical solution and presents the completed system. The third part is concentrated on evaluating the solution. Students' opinions were accessed through a questionnaire, some additional interviews as well as feedback forms, which are all covered in Chapter~\ref{chapter:students}. Teaching assistants were given a separate questionnaire, which is discussed in Chapter~\ref{chapter:taq}. Finally, Chapter~\ref{chapter:usedata} covers usage data extracted from server logs and the course management system. The fourth and the last part returns to the initial problem and considers the limitations of the solution in Chapter~\ref{chapter:discussion} as well as summarises the findings and suggests further research areas based on this work in Chapter~\ref{chapter:conclusions}.

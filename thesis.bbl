@@ -1,0 +1,299 @@
+\begin{thebibliography}{10}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{astrachan:1995}
+{\sc Astrachan, O., and Reed, D.}
+\newblock {AAA} and {CS} 1: {The} {Applied} {Apprenticeship} {Approach} to {CS}
+  1.
+\newblock {\em SIGCSE Bulletin 27}, 1 (Mar. 1995), 1--5.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{bayliss:2006}
+{\sc Bayliss, J.~D., and Strout, S.}
+\newblock Games as a {"Flavor"} of {CS1}.
+\newblock {\em SIGCSE Bulletin 38}, 1 (Mar. 2006), 500--504.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{becker:2001}
+{\sc Becker, K.}
+\newblock {Teaching} with {Games}: {The} {Minesweeper} and {Asteroids}
+  {Experience}.
+\newblock {\em J. Comput. Sci. Coll. 17}, 2 (Dec. 2001), 23--33.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{ben-ari:1998}
+{\sc Ben-Ari, M.}
+\newblock Constructivism in {Computer} {Science} {Education}.
+\newblock {\em SIGCSE Bulletin 30}, 1 (1998), 257--261.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{ben-ari:2001}
+{\sc Ben-Ari, M.}
+\newblock Constructivism in {Computer} {Science} {Education}.
+\newblock {\em Journal of Computers in Mathematics and Science Teaching 20}, 1
+  (2001), 45--73.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{bruce:2001}
+{\sc Bruce, K.~B., Danyluk, A., and Murtagh, T.}
+\newblock A {Library} to {Support} a {Graphics-Based} {Object-First} {Approach}
+  to {CS} 1.
+\newblock {\em SIGCSE Bulletin 33}, 1 (Feb. 2001), 6--10.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{buck:2000}
+{\sc Buck, D., and Stucki, D.~J.}
+\newblock Design {Early} {Considered} {Harmful}: {Graduated} {Exposure} to
+  {Complexity} and {Structure} {Based} on {Levels} of {Cognitive}
+  {Development}.
+\newblock {\em SIGCSE Bulletin 32}, 1 (Mar. 2000), 75--79.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{duboulay:1986}
+{\sc du~Boulay, B.}
+\newblock Some {Difficulties} of {Learning} to {Program}.
+\newblock {\em Journal of Educational Computing Research 2}, 1 (1986), 57--73.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{edwards:2014}
+{\sc Edwards, S.~H., Tilden, D.~S., and Allevato, A.}
+\newblock Pythy: {Improving} the {Introductory} {Python} {Programming}
+  {Experience}.
+\newblock In {\em Proceedings of the 45th ACM Technical Symposium on Computer
+  Science Education\/} (New York, NY, USA, 2014), SIGCSE '14, ACM,
+  pp.~641--646.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{grissom:2000}
+{\sc Grissom, S.}
+\newblock A {Pedagogical} {Framework} for {Introducing} {Java} {I/O} in {CS1}.
+\newblock {\em SIGCSE Bulletin 32}, 4 (Dec. 2000), 57--59.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{guo:2013}
+{\sc Guo, P.~J.}
+\newblock {Online Python Tutor: Embeddable Web-Based Program Visualization for
+  CS Education}.
+\newblock In {\em Proceeding of the 44th ACM Technical Symposium on Computer
+  Science Education\/} (New York, NY, USA, 2013), SIGCSE '13, ACM,
+  pp.~579--584.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{guzdial:2003}
+{\sc Guzdial, M.}
+\newblock {A Media Computation Course for Non-Majors}.
+\newblock {\em SIGCSE Bulletin 35}, 3 (June 2003), 104--108.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{guzdial:2013}
+{\sc Guzdial, M.}
+\newblock {Exploring Hypotheses about Media Computation}.
+\newblock In {\em Proceedings of the Ninth Annual International ACM Conference
+  on International Computing Education Research\/} (New York, NY, USA, 2013),
+  ICER '13, ACM, pp.~19--26.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{guzdial:2002}
+{\sc Guzdial, M., and Soloway, E.}
+\newblock {Teaching the Nintendo Generation to Program}.
+\newblock {\em Communication of the ACM 45}, 4 (Apr. 2002), 17--21.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{hamid:2012}
+{\sc Hamid, N.~A.}
+\newblock {Automated Web-Based User Interfaces for Novice Programmers}.
+\newblock In {\em Proceedings of the 50th Annual Southeast Regional
+  Conference\/} (New York, NY, USA, 2012), ACM-SE '12, ACM, pp.~42--47.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{hansen:2004}
+{\sc Hansen, S.}
+\newblock {The Game of Set\textregistered: An Ideal Example for Introducing
+  Polymorphism and Design Patterns}.
+\newblock {\em SIGCSE Bulletin 36}, 1 (Mar. 2004), 110--114.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{hiisila:2005}
+{\sc Hiisil\"{a}, A.}
+\newblock {Kurssinhallintaj\"{a}rjestelm\"{a} ohjelmoinnin perusopetuksen
+  avuksi (Course Management System for basic courses in programming)}.
+\newblock Master's thesis, Helsinki University of Technology, Espoo, Finland,
+  2005.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{hitz:1997}
+{\sc Hitz, M., and K\"{o}geler, S.}
+\newblock {Teaching C++ on the WWW}.
+\newblock {\em SIGCSE Bulletin 29}, 3 (June 1997), 11--13.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{jazayeri:2007}
+{\sc Jazayeri, M.}
+\newblock {Some Trends in Web Application Development}.
+\newblock In {\em Future of Software Engineering, 2007. FOSE'07\/} (2007),
+  IEEE, pp.~199--213.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{jimenez-peris:1999}
+{\sc Jim{\'e}nez-Peris, R., Khuri, S., and Pati\~{n}o Mart\'{\i}nez, M.}
+\newblock {Adding Breadth to CS1 and CS2 Courses Through Visual and Interactive
+  Programming Projects}.
+\newblock {\em SIGCSE Bulletin 31}, 1 (Mar. 1999), 252--256.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{lambert:2000}
+{\sc Lambert, K., and Osborne, M.}
+\newblock {Easy, Realistic GUIs with Java in CS1}.
+\newblock {\em Journal of Computing Sciences in Colleges 16}, 2 (Oct. 2000),
+  209--215.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{lewis:2006}
+{\sc Lewis, M.~C., and Massingill, B.}
+\newblock {Graphical Game Development in CS2: A Flexible Infrastructure for a
+  Semester Long Project}.
+\newblock {\em SIGCSE Bulletin 38}, 1 (Mar. 2006), 505--509.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{ng:2005}
+{\sc Ng, S.~C., Choy, S.~O., Kwan, R., and Chan, S.~F.}
+\newblock {\em {A Web-Based Environment to Improve Teaching and Learning of
+  Computer Programming in Distance Education}}.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2005, pp.~279--290.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{perry:2007}
+{\sc Perry, R.}
+\newblock {Multimedia Web-based Programming Development Environment}.
+\newblock In {\em 2007 37th Annual Frontiers In Education Conference-Global
+  Engineering: Knowledge Without Borders, Opportunities Without Passports\/}
+  (2007), IEEE, pp.~F2H--13.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{reges:2000}
+{\sc Reges, S.}
+\newblock {Conservatively Radical Java in CS1}.
+\newblock {\em SIGCSE Bulletin 32}, 1 (Mar. 2000), 85--89.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{roberts:1998}
+{\sc Roberts, E., and Picard, A.}
+\newblock {Designing a Java Graphics Library for CS1}.
+\newblock {\em SIGCSE Bulletin 30}, 3 (Aug. 1998), 213--218.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{roberts:1995}
+{\sc Roberts, E.~S.}
+\newblock {A C-Based Graphics Library for CS1}.
+\newblock {\em SIGCSE Bulletin 27}, 1 (Mar. 1995), 163--167.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{shultz:2006}
+{\sc Shultz, G.}
+\newblock {Integrating 3D Graphics into Early CS Courses}.
+\newblock {\em Journal of Computing Sciences in Colleges 21}, 3 (Feb. 2006),
+  169--178.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{simon:2010}
+{\sc Simon, B., Kinnunen, P., Porter, L., and Zazkis, D.}
+\newblock {Experience Report: CS1 for Majors with Media Computation}.
+\newblock In {\em Proceedings of the Fifteenth Annual Conference on Innovation
+  and Technology in Computer Science Education\/} (New York, NY, USA, 2010),
+  ITiCSE '10, ACM, pp.~214--218.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{smith:1994}
+{\sc Smith~III, J.~P., Disessa, A.~A., and Roschelle, J.}
+\newblock {Misconceptions Reconceived: A Constructivist Analysis of Knowledge
+  in Transition}.
+\newblock {\em The Journal of the Learning Sciences 3}, 2 (1993), 115--163.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{stephenson:2009}
+{\sc Stephenson, B., and Taube-Schock, C.}
+\newblock {QuickDraw: Bringing Graphics into First Year}.
+\newblock {\em SIGCSE Bulletin 41}, 1 (Mar. 2009), 211--215.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{sung:2008}
+{\sc Sung, K., Panitz, M., Wallace, S., Anderson, R., and Nordlinger, J.}
+\newblock {Game-Themed Programming Assignments: The Faculty Perspective}.
+\newblock {\em SIGCSE Bulletin 40}, 1 (Mar. 2008), 300--304.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{sung:2007}
+{\sc Sung, K., Shirley, P., and Rosenberg, B.~R.}
+\newblock {Experiencing Aspects of Games Programming in an Introductory
+  Computer Graphics Class}.
+\newblock {\em SIGCSE Bulletin 39}, 1 (Mar. 2007), 249--253.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{truong:2003}
+{\sc Truong, N., Bancroft, P., and Roe, P.}
+\newblock {A Web Based Environment for Learning to Program}.
+\newblock In {\em Proceedings of the 26th Australasian computer science
+  conference-Volume 16\/} (2003), Australian Computer Society, Inc.,
+  pp.~255--264.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{vazhenin:2005}
+{\sc Vazhenin, D., Vazhenin, A., and Wang, Y.-H.}
+\newblock {WEB-based Environment for Programming and Distance Learning}.
+\newblock In {\em 19th International Conference on Advanced Information
+  Networking and Applications (AINA'05) Volume 1 (AINA papers)\/} (2005),
+  vol.~2, IEEE, pp.~109--112.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{glasersfeld:1995}
+{\sc von Glasersfeld, E.}
+\newblock {A Constructivist Approach to Teaching}.
+\newblock In {\em Constructivism in Education}. Erlbaum, Hillsdale, 1995,
+  pp.~3--15.
+\end{minipage}
+
+\begin{minipage}{0.93\textwidth}
+\bibitem{yoo:2011}
+{\sc Yoo, D., Schanzer, E., Krishnamurthi, S., and Fisler, K.}
+\newblock {WeScheme: The Browser is Your Programming Environment}.
+\newblock In {\em Proceedings of the 16th Annual Joint Conference on Innovation
+  and Technology in Computer Science Education\/} (New York, NY, USA, 2011),
+  ITiCSE '11, ACM, pp.~163--167.
+\end{minipage}
+
+\end{thebibliography}

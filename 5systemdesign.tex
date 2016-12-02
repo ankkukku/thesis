@@ -1,0 +1,58 @@
+\chapter{System Design}
+\label{chapter:SystemDesign}
+
+This chapter clarifies the design goals for EDCAT and discussed the restrictions related in achieving those goals. Section~\ref{section:GoalsAndConstraints} covers all relevant issues that should be considered in implementing EDCAT; Subsections~\ref{subsection:existingSystems} and~\ref{subsection:exerciseDesign} outline what options are available for the basis of EDCAT and analyse how the course's desired learning outcomes affect the end result. Considering the user requirements we evaluate the existing systems that could be used for the solution. Additionally, we consider what kind of requirements arise from the exercises, which are interactive and use media content. Finally, the design decisions are stated in Section~\ref{section:decisions}.
+
+
+\section{System Goals and Constraints}
+\label{section:GoalsAndConstraints}
+
+We aim to create a tool that distributes GUIs that are interoperable with Scala programming assignments and enable the trial execution of those assignments. The assignments are interactive and use media content to challenge the students to apply their freshly acquired programming skills to real-world problems. Because there already are a few different systems in place as Aalto University, on top of those previously used and ran down, the aim is to integrate EDCAT with one of the existing systems. The design should be such that EDCAT could be easily taken to use with little modifications with another system.
+
+The general requirements for EDCAT include ease of use and usefulness in assuring that implemented functionality works as desired. The system must not be more difficult to use than any other exercise submission system and must not cause any extra work to students compared with for example the last year's course. The system should provide sufficient information for whether the student's solution works. However, the system must not explicitly mark the solution as correct or incorrect. We want for students to use their own judgement in deciding when their solution is complete.
+
+The system will have three different user groups; the teacher, the teaching assistants and the students. The students are offered the minimum functionality that is available to the two other user groups as well. The students must be able to see the exercise instructions and submit multiple solutions to those exercises. A submission must produce a working GUI for trying the implemented functionality in action. The solutions must be browsable and don't need to fully implement the functionality described by the exercise instructions to work. It should be clear for students as to which of their solutions will be graded.
+
+The teaching assistants must have access to students' submissions in order to provide feedback and grade for them. Previously, the feedback and grading information has been sent to students via email. However, if teaching assistants could leave feedback and grades through the system, it would decrease the channels through which information is given to students.
+
+The teacher user has the same functionality as the two described previously. Additionally, the teacher must be able to publish and manage exercises. The exercises can change after publishing and the teacher must have easy access to update instructions and resources. Implementing a GUI for the system should not require more work compared with a locally run GUI.
+
+
+\subsection{Existing Systems}
+\label{subsection:existingSystems}
+
+As already discussed in Chapter~\ref{chapter:context} the previous year's course used A+ system while the \emph{Programming 1} course, which runs parallel to this course, uses Goblin. Additionally, Goblin's grader EXPACA has been previously used with A+ in \emph{Programming Studio 1} course. EXPACA is designed to provide a grade for the assignment by comparing student's solution to a model solution. Both solutions are executed against a test class that awards point for passed actions. Finally, the grading returns a report of the execution as soon as it finishes or some mandatory requirement is not met. Out of the box EXPACA supports only this kind of grading and would require extensive rework in order to support returning anything else. Because Goblin is designed to use only EXPACA for grading and will probably be abandoned in the future, there is no sense in building the implementation for EDCAT on top of Goblin and EXPACA.
+
+A+ system provides modern course management features that cover many of the set user requirements. The teaching assistants' requirements are already met without any additional configurations. Similarly, the teacher's requirements are met in every respect with the exception for GUI implementation; A+ does not set any limitation to implementation as long as it can be viewed in browser or started from the browser. The students' requirements are similarly met with the exception for those related to implementing the solution with no additional effort compared with the previous year. Additionally, whether the GUI provides sufficient information on student's success is not related to A+ directly.
+
+Furthermore, A+ is designed to be extended by other services --- for example grading software. There is a separate grader framework\footnote{ \url{https://github.com/Aalto-LeTech/mooc-grader}} suggested to be used together with A+. The grader can be hosted separately and should work with minimal effort together with an instance of A+. The grader has support for Python and Java submissions but it is too designed to be extended thus support for Scala could be easily added. By default the grader returns the feedback for the submission using one of the templates that can include any output resulting from the grading process. It would require little effort to implement an appropriate template that could include some embedded JavaScript that can be executed in browser.
+
+
+\subsection{Exercise Design}
+\label{subsection:exerciseDesign}
+
+The exercises should introduce students to real-world programming problems that use sound and image and result in interactive programs. The course has five assignment rounds of which the last two involve some GUI programming and one of those exercises is concentrated on building a program that uses some networked content. The first three rounds should be easy to implement for browser execution but the latter two will be excluded from the scope of this project. Exercises from the previous year will be reworked to be used with EDCAT where suitable. In \emph{Programming Studio 1} course we have encouraged students to extend the functionality of the exercises beyond what is required. The new implementation should support to some extent free expandability.
+
+The first assignment round works as an introduction to programming and basic control structures. Previously, small game programming assignments have been proven practical and will be used also this year. The games of rock-paper-scissors and tic-tac-toe should be simple enough for a novice programmer to successfully implement. The second and third assignment rounds have previously been concentrated on sound and image filtering respectively. These assignments will be implemented almost as is also this year. The functionality that is implemented by the student is relatively simple but the GUI implementation could potentially prove challenging.
+
+The GUIs and exercises should be designed so that students can return partially implemented solutions and receive meaningful feedback. Continual executions have been encouraged also in the previous iterations of the course and most of the used exercises support this naturally. The GUIs have been implemented in the past using Swing; using for example Scala.js, introduced in Chapter~\ref{chapter:web}, should make it easy to port the existing exercises to EDCAT. 
+
+
+\section{Design Decisions}
+\label{section:decisions}
+
+\begin{figure}[!hb]
+	\begin{center}
+		\input{images/system-architecture.tex}
+	\end{center}
+	\caption[asdf]{The student interacts with A+ system, which is responsible for sending the submission to grader and receiving the resulting JavaScript GUI. Through A+ interface, the teacher manages the course; like sets up the submission deadlines and limits. Through a connection to grader server, the teacher distributes the course material like assignment instructions and files needed for compilation.}
+	\label{figure:architecture}
+\end{figure}
+
+A+ and the aforementioned grader are the most suitable for the implementation of EDCAT considering the set user requirements. A+ takes care of user management and defines only submission limits and deadlines for the exercises while other information is stored within grader software. The grader software will need a server that can be accessed when exercises should need updating. The course configuration files should be version managed for example by \texttt{git} and thus can be easily updated.
+
+Structure of EDCAT is pictured in Figure~\ref{figure:architecture}; the teacher sets up exercise limits in A+ and manages the materials on a server running the grader application. The student still accesses only A+ system, but no longer needs to download exercise materials to their own computer. Students' solutions are submitted to the grader server, which in turn returns JavaScript code that the student can execute in their browser.
+
+The students will have two submission areas for each assignment --- one for executing the implementation and one for leaving the solution for grading. The latest submission to the grading area will be graded and given feedback to. The feedback will be posted through A+ system, which will cause a notification visible to the student. However, the cumulation of points will be followed separately and updated elsewhere. Because the assignments will be extendable, the students can be awarded more than the maximum points. However, granting more than maximum points is not possible in A+ and we want to keep maximum points value representative of the maximum points granted for the required functionality.
+
+The GUIs for the assignments will be implemented using Scala.js, which allows compiling Scala code into JavaScript. The grader software will be responsible for compiling the JavaScript code and returning it to A+. The media files will be hosted in a separate location with access from A+.

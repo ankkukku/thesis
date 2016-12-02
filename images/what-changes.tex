@@ -1,0 +1,79 @@
+\small{
+\subfigure[Before]{
+	\begin{tikzpicture}
+	
+		\umlactor[x=-6, y=0, scale=1.5]{teacher}
+		
+		\draw (-3.5,0) node[minimum height=0.7cm,minimum width=1.5cm,draw] (G1) {GUI};
+		
+		\umlactor[x=-1.5, y=0]{student}
+		
+		\draw (1.4,0.5) node[minimum height=0.7cm,minimum width=1.5cm,draw] (G2) {GUI};		
+		\draw (1.4,-0.5) node[minimum height=0.7cm,minimum width=3.0cm,draw] (S) {SOLUTION};
+		
+		% computer
+		\draw (5.2,0) node[minimum height=1.5cm,minimum width=1.5cm,draw,align=center] (C) {Student's\\Computer};
+		\draw (5.2,-1) node[trapezium, trapezium angle=80,
+											minimum height=0.7cm,minimum width=2.7cm,draw,
+											trapezium stretches=true]{};
+		\draw (5.2,-1) node[draw=none, minimum height=0.7cm]{IDE};
+		\draw (5.2,-1.8) node[draw=none, minimum height=0.7cm]{Compilation};
+		\draw (5.2,-2.2) node[draw=none, minimum height=0.7cm]{Execution};
+		
+		
+		% connections
+		\umlassoc{teacher}{G1}
+		
+		\umlinherit{G1}{student}
+		
+		\umlassoc[anchors=50 and 180]{student}{G2}
+		\umlassoc[anchors=-50 and 180]{student}{S}
+		
+		\umlHVHinherit{G2}{C}
+		\umlHVHinherit{S}{C}
+		
+	
+	\end{tikzpicture}
+}
+
+\vspace{1cm}
+
+\subfigure[After]{
+	\begin{tikzpicture}[>=open triangle 45]
+	
+		\umlactor[x=-6, y=0, scale=1.5]{teacher}
+		
+		\draw (-3.5,0) node[minimum height=0.7cm,minimum width=1.5cm,draw] (G1) {GUI};
+		
+		\draw (-1.2,0) node[minimum height=1.5cm,minimum width=1.5cm,draw] (Se) {Server};
+		\draw (-1.2,-1.2) node[draw=none, minimum height=0.7cm]{Compilation};
+
+		\draw (1.4,1.6) node[minimum height=0.7cm,minimum width=3.0cm,draw] (S) {SOLUTION};
+		
+		\umlactor[x=5.2, y=1.6]{student}
+		
+
+		
+		% computer
+		\draw (5.2,-1) node[minimum height=1.5cm,minimum width=1.5cm,draw,align=center] (C) {Student's\\Computer};
+		\draw (5.2,-2) node[trapezium, trapezium angle=80,
+											minimum height=0.7cm,minimum width=2.7cm,draw,
+											trapezium stretches=true]{};
+		\draw (5.2,-2) node[draw=none, minimum height=0.7cm]{Browser};
+		\draw (5.2,-2.8) node[draw=none, minimum height=0.7cm]{Execution};
+		
+		% connections
+		\umlassoc{teacher}{G1}
+		
+		\umlinherit{G1}{Se}
+		
+		\draw[bend right,->]  (S.west) to node [in=90] {} (Se);
+		
+		\umlassoc{student}{S}
+		
+		\draw[bend right,->]  (Se) to node [auto] {} (C);
+		
+	
+	\end{tikzpicture}
+}
+}
